@@ -24,13 +24,41 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.strikepath.co'),
   title: {
     template: '%s | StrikePath',
-    default: 'StrikePath — AI websites that convert.',
+    default: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
   },
   description:
-    'StrikePath builds AI-powered websites engineered to convert. Based in Phoenix, Arizona.',
-  metadataBase: new URL('https://strikepath.com'),
+    'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+  openGraph: {
+    type: 'website',
+    siteName: 'StrikePath',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'StrikePath — AI Websites, Automation & Chatbots',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@StrikePathAI',
+    creator: '@StrikePathAI',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({

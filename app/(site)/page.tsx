@@ -1,5 +1,35 @@
+import type { Metadata } from 'next'
 import HeroVideo from '@/app/components/HeroVideo'
 import ContactForm from '@/app/components/ContactForm'
+
+export const metadata: Metadata = {
+  title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
+  description:
+    'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+  alternates: {
+    canonical: 'https://www.strikepath.co',
+  },
+  openGraph: {
+    title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
+    description:
+      'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+    url: 'https://www.strikepath.co',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'StrikePath — AI Websites, Automation & Chatbots',
+      },
+    ],
+  },
+  twitter: {
+    title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
+    description:
+      'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+    images: ['/og-image.png'],
+  },
+}
 
 const features = [
   {
