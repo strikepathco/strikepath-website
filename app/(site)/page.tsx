@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import HeroVideo from '@/app/components/HeroVideo'
-import EmailCapture from '@/app/components/EmailCapture'
 
 export const metadata: Metadata = {
   title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
@@ -85,7 +84,7 @@ export default function HomePage() {
             style={{
               fontSize: 'clamp(1.1rem, 2.4vw, 1.9rem)',
               lineHeight: 1.3,
-              marginTop: '0.75em',
+              marginTop: '1.25rem',
               maxWidth: '32rem',
             }}
           >
@@ -97,7 +96,7 @@ export default function HomePage() {
             style={{
               fontSize: 'clamp(1rem, 1.4vw, 1.125rem)',
               lineHeight: 1.9,
-              marginTop: '1.25rem',
+              marginTop: '1.5rem',
               maxWidth: '36rem',
             }}
           >
@@ -106,7 +105,7 @@ export default function HomePage() {
             operations and more time scaling. Serving businesses nationwide.
           </p>
 
-          <div className="hairline" style={{ margin: '2rem 0', maxWidth: '440px' }} />
+          <div className="hairline" style={{ margin: '2.5rem 0', maxWidth: '440px' }} />
 
           <a href="/contact" className="btn-gold" style={{ textDecoration: 'none' }}>
             <span>Start a Project</span>
@@ -118,14 +117,13 @@ export default function HomePage() {
       {/* ── How We Work ── */}
       <section id="process" className="px-8 sm:px-14 lg:px-28 py-24 md:py-32 border-t border-line">
 
-        <span className="eyebrow mb-5">Process</span>
+        <span className="eyebrow" style={{ display: 'block', marginBottom: '1.5rem' }}>Process</span>
         <h2
           className="font-display font-extralight text-bone"
           style={{
             fontSize: 'clamp(2.5rem, 5.5vw, 5rem)',
             letterSpacing: '-0.025em',
             lineHeight: 0.9,
-            marginTop: '1.25rem',
             marginBottom: '4rem',
           }}
         >
@@ -147,23 +145,23 @@ export default function HomePage() {
             <div
               key={num}
               className="relative"
-              style={{ paddingLeft: '2.75rem', paddingBottom: i < steps.length - 1 ? '3.25rem' : 0 }}
+              style={{ paddingLeft: '2.75rem', paddingBottom: i < steps.length - 1 ? '3.5rem' : 0 }}
             >
               <div
                 className="absolute"
                 style={{
                   left: '0.3125rem',
-                  top: '0.3rem',
+                  top: '0.35rem',
                   width: '9px',
                   height: '9px',
                   background: i === 0 ? 'var(--gold)' : 'var(--gold-deep)',
                   transform: 'rotate(45deg)',
                 }}
               />
-              <span className="eyebrow">{num}</span>
+              <span className="eyebrow" style={{ display: 'block', marginBottom: '0.75rem' }}>{num}</span>
               <h3
                 className="font-display font-light text-bone"
-                style={{ fontSize: 'clamp(1.25rem, 2vw, 1.65rem)', letterSpacing: '-0.01em', marginTop: '0.65rem', marginBottom: '0.6rem' }}
+                style={{ fontSize: 'clamp(1.25rem, 2vw, 1.65rem)', letterSpacing: '-0.01em', marginBottom: '0.75rem' }}
               >
                 {title}
               </h3>
@@ -177,29 +175,45 @@ export default function HomePage() {
       </section>
 
       {/* ── Why StrikePath ── */}
-      <section className="px-8 sm:px-14 lg:px-28 py-24 md:py-32 border-t border-line">
+      <section className="px-8 sm:px-14 lg:px-28 py-24 md:py-32 border-t border-line" style={{ textAlign: 'center' }}>
 
-        <span className="eyebrow mb-5">Why StrikePath</span>
         <h2
           className="font-display font-extralight text-bone"
           style={{
             fontSize: 'clamp(2.5rem, 5.5vw, 5rem)',
             letterSpacing: '-0.025em',
-            lineHeight: 0.9,
-            marginTop: '1.25rem',
+            lineHeight: 0.95,
+            marginBottom: '1.25rem',
+          }}
+        >
+          Why StrikePath
+        </h2>
+
+        <p
+          className="font-display font-light"
+          style={{
+            fontSize: 'clamp(1.25rem, 2.5vw, 2.25rem)',
+            letterSpacing: '-0.02em',
+            color: 'rgba(236,227,204,0.65)',
             marginBottom: '4rem',
           }}
         >
-          Built<br />different.
-        </h2>
+          Built different.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8" style={{ textAlign: 'left' }}>
           {trustPoints.map(({ num, title, desc }) => (
-            <div key={num} style={{ borderTop: '1px solid var(--line)', paddingTop: '1.75rem' }}>
-              <span className="eyebrow">{num}</span>
+            <div
+              key={num}
+              style={{
+                borderTop: '1px solid var(--line)',
+                paddingTop: '2rem',
+              }}
+            >
+              <span className="eyebrow" style={{ display: 'block', marginBottom: '0.75rem' }}>{num}</span>
               <h3
                 className="font-display font-light text-bone"
-                style={{ fontSize: 'clamp(1.25rem, 1.8vw, 1.65rem)', letterSpacing: '-0.01em', marginTop: '1rem', marginBottom: '0.8rem' }}
+                style={{ fontSize: 'clamp(1.25rem, 1.8vw, 1.65rem)', letterSpacing: '-0.01em', marginBottom: '0.9rem' }}
               >
                 {title}
               </h3>
@@ -212,33 +226,49 @@ export default function HomePage() {
 
       </section>
 
-      {/* ── Email contact ── */}
-      <section id="contact" className="px-8 sm:px-14 lg:px-28 py-24 md:py-32 border-t border-line">
-
-        <span className="eyebrow mb-5">Get Started</span>
-        <h2
-          className="font-display font-extralight text-bone"
+      {/* ── Bottom CTA line ── */}
+      <div
+        className="px-8 sm:px-14 lg:px-28 py-16 border-t border-line"
+        style={{ textAlign: 'center' }}
+      >
+        <p
           style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 5rem)',
-            letterSpacing: '-0.025em',
-            lineHeight: 0.9,
-            marginTop: '1.25rem',
-            marginBottom: '2.5rem',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.7rem',
+            fontWeight: 300,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--bone-dim)',
           }}
         >
-          Ready<br />to build?
-        </h2>
-
-        <p
-          className="font-sans font-light text-bone-dim"
-          style={{ fontSize: 'clamp(1rem, 1.4vw, 1.125rem)', lineHeight: 1.9, marginBottom: '2.5rem', maxWidth: '32rem' }}
-        >
-          Drop your email and we'll reach out within 24 hours with a clear path forward.
+          Ready to start?{' '}
+          <a
+            href="/services"
+            style={{
+              color: 'var(--gold)',
+              textDecoration: 'none',
+              borderBottom: '1px solid var(--gold-deep)',
+              paddingBottom: '1px',
+              transition: 'color 0.2s ease, border-color 0.2s ease',
+            }}
+          >
+            Visit our services
+          </a>
+          {' '}or{' '}
+          <a
+            href="/contact"
+            style={{
+              color: 'var(--gold)',
+              textDecoration: 'none',
+              borderBottom: '1px solid var(--gold-deep)',
+              paddingBottom: '1px',
+              transition: 'color 0.2s ease, border-color 0.2s ease',
+            }}
+          >
+            contact us
+          </a>
         </p>
-
-        <EmailCapture />
-
-      </section>
+      </div>
 
     </main>
   )
