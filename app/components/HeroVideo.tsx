@@ -52,7 +52,7 @@ export default function HeroVideo({ children }: { children: React.ReactNode }) {
       <div className="sticky top-0 h-screen overflow-hidden">
         <video
           ref={videoRef}
-          src="/videos/hero.mp4"
+          src="/strikepath-hero.mp4.mp4"
           muted
           playsInline
           preload="auto"
