@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import HeroVideo from '@/app/components/HeroVideo'
 import ContactForm from '@/app/components/ContactForm'
+import ServicesSection from '@/app/components/ServicesSection'
 
 export const metadata: Metadata = {
   title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
@@ -31,23 +32,6 @@ export const metadata: Metadata = {
   },
 }
 
-const features = [
-  {
-    num: '01',
-    title: 'AI Websites',
-    desc: 'Conversion-ready sites built in days, not months. Engineered around your goals from the first line of code.',
-  },
-  {
-    num: '02',
-    title: 'AI Automation',
-    desc: 'Workflows that handle repetitive tasks automatically—so your team focuses on decisions, not admin.',
-  },
-  {
-    num: '03',
-    title: 'AI Chatbots',
-    desc: 'Customer service running 24/7. Every question answered, every lead captured, every hour of the day.',
-  },
-]
 
 const steps = [
   {
@@ -123,36 +107,7 @@ export default function HomePage() {
         </div>
       </HeroVideo>
 
-      {/* ── Feature grid ─────────────────────────────────────────────────────── */}
-      <section id="services" className="px-8 sm:px-14 lg:px-28 pt-20 pb-24 md:pt-24 md:pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-          {features.map(({ num, title, desc }) => (
-            <div
-              key={num}
-              style={{ borderTop: '1px solid var(--line)', paddingTop: '1.75rem' }}
-            >
-              <span className="eyebrow">{num}</span>
-              <h3
-                className="font-display font-light text-bone"
-                style={{
-                  fontSize: 'clamp(1.25rem, 1.8vw, 1.65rem)',
-                  letterSpacing: '-0.01em',
-                  marginTop: '1rem',
-                  marginBottom: '0.8rem',
-                }}
-              >
-                {title}
-              </h3>
-              <p
-                className="font-sans font-light text-bone-dim"
-                style={{ fontSize: '1rem', lineHeight: 1.85 }}
-              >
-                {desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* ── How We Work ──────────────────────────────────────────────────────── */}
       <section id="process" className="px-8 sm:px-14 lg:px-28 pb-28 md:pb-36">
