@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google'
+import { Plus_Jakarta_Sans, Nunito, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -9,11 +9,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ['200', '300', '400', '500', '600', '700', '800'],
 })
 
-const inter = Inter({
-  variable: '--font-inter',
+const nunito = Nunito({
+  variable: '--font-nunito',
   subsets: ['latin'],
   display: 'swap',
-  weight: ['300', '400', '500'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${plusJakartaSans.variable} ${nunito.variable} ${jetbrainsMono.variable}`}
     >
       <body>{children}</body>
     </html>

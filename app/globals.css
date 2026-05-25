@@ -27,7 +27,7 @@
    ─────────────────────────────────────────────────────────────────────────── */
 @theme {
   --font-display: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
-  --font-sans:    var(--font-inter), Inter, sans-serif;
+  --font-sans:    var(--font-nunito), 'Nunito', sans-serif;
   --font-mono:    var(--font-jbmono), 'JetBrains Mono', monospace;
 }
 
