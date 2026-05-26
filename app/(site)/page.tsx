@@ -32,7 +32,7 @@ const steps = [
   {
     num: '02',
     title: 'Fill the Onboarding Form',
-    desc: 'Right after payment you'll get a short form. It takes under 5 minutes and gives us everything we need to build your service.',
+    desc: "Right after payment you'll get a short form. It takes under 5 minutes and gives us everything we need to build your service.",
   },
   {
     num: '03',
