@@ -89,7 +89,8 @@ export default function ServicesPage() {
         }}
       >
         Every plan is billed monthly with no setup fees and no long-term contracts.
-        Direct access to our team is included with every service.
+        Direct access to our team is included with every service.{' '}
+        After checkout, you'll fill a quick 5-minute form — that's everything we need to get started.
       </p>
 
       {/* Category sections */}
