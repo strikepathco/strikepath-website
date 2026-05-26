@@ -14,10 +14,19 @@ const labelStyle: React.CSSProperties = {
   marginBottom: '0.5rem',
 }
 
+const SERVICE_TYPES = [
+  'AI Chatbot',
+  'AI Receptionist',
+  'AI Automation',
+  'AI Marketing',
+  'General Inquiry',
+]
+
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: '',
     email: '',
+    serviceType: '',
   })
   const [status, setStatus] = useState<Status>('idle')
 
@@ -35,6 +44,7 @@ export default function ContactForm() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          'service-type': form.serviceType,
         }),
       })
       setStatus(res.ok ? 'success' : 'error')
@@ -105,6 +115,40 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Service Type */}
+      <div style={{ marginBottom: '3rem' }}>
+        <p style={labelStyle}>Service</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
+          {SERVICE_TYPES.map(opt => {
+            const selected = form.serviceType === opt
+            return (
+              <button
+                key={opt}
+                type="button"
+                onClick={() => setForm(prev => ({ ...prev, serviceType: opt }))}
+                style={{
+                  padding: '0.45rem 1.1rem',
+                  borderRadius: '9999px',
+                  border: `1px solid ${selected ? 'var(--gold)' : 'var(--line-strong)'}`,
+                  background: selected ? 'var(--gold)' : 'transparent',
+                  color: selected ? 'var(--ink)' : 'var(--bone-dim)',
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.63rem',
+                  fontWeight: selected ? 400 : 300,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {opt}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
       {/* Submit */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'flex-start' }}>
         <button
@@ -113,7 +157,7 @@ export default function ContactForm() {
           disabled={status === 'sending'}
           style={{ opacity: status === 'sending' ? 0.55 : 1, transition: 'opacity 0.3s ease' }}
         >
-          <span>{status === 'sending' ? 'Sending…' : 'Start Your Project'}</span>
+          <span>{status === 'sending' ? 'Sending…' : 'Send Message'}</span>
         </button>
 
         {status === 'error' && (

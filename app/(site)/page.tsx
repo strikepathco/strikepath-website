@@ -2,23 +2,23 @@ import type { Metadata } from 'next'
 import HeroVideo from '@/app/components/HeroVideo'
 
 export const metadata: Metadata = {
-  title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
+  title: 'StrikePath | AI Chatbots, Automation & Receptionists for Businesses',
   description:
-    'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+    'StrikePath builds AI-powered chatbots, automation workflows, and intelligent receptionists that save businesses time and money. Serving businesses nationwide.',
   alternates: {
     canonical: 'https://www.strikepath.co',
   },
   openGraph: {
-    title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
+    title: 'StrikePath | AI Chatbots, Automation & Receptionists for Businesses',
     description:
-      'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+      'StrikePath builds AI-powered chatbots, automation workflows, and intelligent receptionists that save businesses time and money. Serving businesses nationwide.',
     url: 'https://www.strikepath.co',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'StrikePath — AI Websites, Automation & Chatbots' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'StrikePath — AI Chatbots, Automation & Receptionists' }],
   },
   twitter: {
-    title: 'StrikePath | AI Websites, Automation & Chatbots for Businesses',
+    title: 'StrikePath | AI Chatbots, Automation & Receptionists for Businesses',
     description:
-      'StrikePath builds AI-powered websites, automation workflows, and intelligent chatbots that save businesses time and money. Serving businesses nationwide.',
+      'StrikePath builds AI-powered chatbots, automation workflows, and intelligent receptionists that save businesses time and money. Serving businesses nationwide.',
     images: ['/og-image.png'],
   },
 }
@@ -50,7 +50,7 @@ const trustPoints = [
   {
     num: '01',
     title: 'Fast Delivery',
-    desc: 'Websites, chatbots, and automations delivered in days, not months. AI tools let us build faster without cutting corners.',
+    desc: 'Chatbots, automations, and AI receptionists delivered in days, not months. AI tools let us build faster without cutting corners.',
   },
   {
     num: '02',
@@ -100,7 +100,7 @@ export default function HomePage() {
               maxWidth: '36rem',
             }}
           >
-            We build AI websites, automation workflows, and intelligent chatbots
+            We build AI chatbots, automation workflows, and intelligent receptionists
             that save your team time and money—so you can spend less time on
             operations and more time scaling. Serving businesses nationwide.
           </p>

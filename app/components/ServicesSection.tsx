@@ -17,108 +17,48 @@ type Service = {
 
 const SERVICES: Service[] = [
   {
-    tab: 'Websites',
-    eyebrow: '01 — Websites',
-    title: 'AI Websites',
-    description:
-      'Custom-coded, conversion-focused websites built around your business goals — not a template. Engineered from the first line of code to turn visitors into customers.',
-    tiers: [
-      {
-        name: 'Basic',
-        price: '$449',
-        note: 'One-time · Hostinger-hosted build. Ideal for service businesses getting online fast.',
-      },
-      {
-        name: 'Premium',
-        price: '$1,299',
-        note: 'One-time · Fully custom-coded with advanced features, animations, and full code ownership.',
-      },
-    ],
-  },
-  {
     tab: 'Chatbots',
-    eyebrow: '02 — Chatbots',
+    eyebrow: '01 — Chatbots',
     title: 'AI Chatbots',
     description:
       'Intelligent chatbots that handle customer questions, capture leads, and work 24/7 without a salary. Every message answered, every lead logged.',
     tiers: [
-      {
-        name: 'Starter',
-        price: '$497 setup + $79/mo',
-        note: 'Handles FAQs, captures leads, and syncs to email.',
-      },
-      {
-        name: 'Pro',
-        price: '$997 setup + $149/mo',
-        note: 'Full CRM integration, custom conversation flows, and priority support.',
-      },
+      { name: 'Starter', price: '$149/mo', note: 'Handles FAQs, captures leads, and syncs to email.' },
+      { name: 'Pro',     price: '$249/mo', note: 'Full CRM integration, custom conversation flows, and priority support.' },
     ],
   },
   {
     tab: 'AI Receptionist',
-    eyebrow: '03 — AI Receptionist',
+    eyebrow: '02 — AI Receptionist',
     title: 'AI Receptionist',
     description:
       'A virtual receptionist that answers calls, qualifies leads, and books appointments — no hold music, no missed calls, no overtime.',
     tiers: [
-      {
-        name: 'Standard',
-        price: '$599 setup + $199/mo',
-        note: '~100 calls/month included.',
-      },
-      {
-        name: 'Unlimited',
-        price: '$999 setup + $349/mo',
-        note: 'Unlimited calls, CRM sync, and full call transcripts.',
-      },
+      { name: 'Standard',  price: '$349/mo', note: '~100 calls/month included.' },
+      { name: 'Unlimited', price: '$549/mo', note: 'Unlimited calls, CRM sync, and full call transcripts.' },
     ],
   },
   {
     tab: 'Automation',
-    eyebrow: '04 — Automation',
+    eyebrow: '03 — Automation',
     title: 'AI Automation',
     description:
       'Custom workflows that eliminate repetitive tasks and connect your tools — built once, running indefinitely. Your team focuses on decisions, not admin.',
     tiers: [
-      {
-        name: 'Single Workflow',
-        price: '$797',
-        note: 'One-time · One targeted automation — data sync, notifications, or task routing.',
-      },
-      {
-        name: 'Multi-Step',
-        price: '$1,997',
-        note: 'One-time · Complex multi-step workflows spanning multiple platforms.',
-      },
-      {
-        name: 'Full Stack',
-        price: '$3,497',
-        note: 'One-time · Complete business automation overhaul.',
-      },
-      {
-        name: 'Maintenance Retainer',
-        price: '$149/mo',
-        note: 'Optional add-on · Ongoing monitoring, updates, and adjustments.',
-      },
+      { name: 'Single Workflow', price: '$247/mo', note: 'One targeted automation — data sync, notifications, or task routing.' },
+      { name: 'Multi-Step',      price: '$397/mo', note: 'Complex multi-step workflows spanning multiple platforms.' },
+      { name: 'Full Stack',      price: '$697/mo', note: 'Complete business automation overhaul.' },
     ],
   },
   {
     tab: 'AI Marketing',
-    eyebrow: '05 — AI Marketing',
+    eyebrow: '04 — AI Marketing',
     title: 'AI Marketing',
     description:
       'AI-generated ad creative and copy that moves fast, looks sharp, and drives clicks — without the retainer of a full agency.',
     tiers: [
-      {
-        name: 'Ad Batch',
-        price: '$297',
-        note: 'One-time · 5–10 AI-generated ads — static and copy variants ready to launch.',
-      },
-      {
-        name: 'Monthly Batch',
-        price: '$197/mo',
-        note: 'A fresh set of ads delivered every month.',
-      },
+      { name: 'Ad Batch',      price: '$197/mo', note: '5–10 AI-generated ads — static and copy variants ready to launch.' },
+      { name: 'Monthly Batch', price: '$247/mo', note: 'A fresh set of ads delivered every month.' },
     ],
   },
 ]
