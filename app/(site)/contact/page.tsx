@@ -28,6 +28,19 @@ export default function ContactPage() {
 
         <div className="hairline" style={{ margin: '2.5rem 0', maxWidth: '200px' }} />
 
+        <p
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.55rem',
+            fontWeight: 300,
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: 'var(--bone-dim)',
+            marginBottom: '0.5rem',
+          }}
+        >
+          Customer Service
+        </p>
         <a
           href="tel:+19283560570"
           style={{
