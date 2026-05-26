@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.strikepath.co'),
   title: {
     template: '%s | StrikePath',
-    default: 'StrikePath | AI Chatbots, Automation & Receptionists for Businesses',
+    default: 'StrikePath | AI Chatbots, Automation, Receptionists & Marketing for Businesses',
   },
   description:
-    'StrikePath builds AI-powered chatbots, automation workflows, and intelligent receptionists that save businesses time and money. Serving businesses nationwide.',
+    'StrikePath builds AI-powered chatbots, automation workflows, AI receptionists, and marketing tools that save businesses time and money. Serving businesses nationwide.',
   openGraph: {
     type: 'website',
     siteName: 'StrikePath',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'StrikePath — AI Websites, Automation & Chatbots',
+        alt: 'StrikePath — AI Chatbots, Automation, Receptionists & Marketing',
       },
     ],
   },
