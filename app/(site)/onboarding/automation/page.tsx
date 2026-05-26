@@ -11,7 +11,7 @@ export default function AutomationOnboarding() {
     <OnboardingPage
       eyebrow="AI Automation · Onboarding"
       heading="Let's automate your workflow."
-      tallyId="QKO9lg"
+      tallyId="obkN8V"
       formTitle="AI Automation Onboarding Form"
     />
   )

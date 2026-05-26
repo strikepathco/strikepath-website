@@ -11,7 +11,7 @@ export default function ReceptionistOnboarding() {
     <OnboardingPage
       eyebrow="AI Receptionist · Onboarding"
       heading="Let's set up your receptionist."
-      tallyId="obkN8V"
+      tallyId="QKO9lg"
       formTitle="AI Receptionist Onboarding Form"
     />
   )
