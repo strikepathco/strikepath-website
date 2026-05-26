@@ -54,8 +54,8 @@ const trustPoints = [
   },
   {
     num: '02',
-    title: 'Fixed Pricing',
-    desc: 'No hourly rates, no scope creep, no surprises. One price, full delivery—what we quote is what you pay.',
+    title: 'Simple Monthly Pricing',
+    desc: 'No contracts, no setup fees, no surprises. One monthly rate, cancel anytime.',
   },
   {
     num: '03',
