@@ -65,8 +65,8 @@ export default function Nav() {
 
         {/* Desktop links */}
         <nav
-          className="hidden md:flex items-center pr-8"
-          style={{ marginLeft: 'auto', gap: '2.5rem' }}
+          className="hidden md:flex items-center"
+          style={{ marginLeft: 'auto', gap: '2.5rem', paddingRight: '3rem' }}
         >
           {LINKS.map(({ label, href }) => (
             <a
