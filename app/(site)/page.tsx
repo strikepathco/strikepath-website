@@ -26,23 +26,23 @@ export const metadata: Metadata = {
 const steps = [
   {
     num: '01',
-    title: 'Discovery',
-    desc: 'We understand your business, goals, and pain points through a brief call. No jargon, no lengthy intake forms—just a focused conversation that shapes everything we build.',
+    title: 'Choose Your Service',
+    desc: 'Browse the services, pick the tier that fits your business, and check out. No sales call required.',
   },
   {
     num: '02',
-    title: 'Build',
-    desc: 'Our AI tools construct your solution while you stay in the loop. You see progress at every stage and can redirect at any point—your input is built into the process, not added after.',
+    title: 'Fill the Onboarding Form',
+    desc: 'Right after payment you'll get a short form. It takes under 5 minutes and gives us everything we need to build your service.',
   },
   {
     num: '03',
-    title: 'Test & Iterate',
-    desc: 'We refine based on your feedback until it is exactly right. Real-world testing against your actual use cases, not hypotheticals.',
+    title: 'We Build It',
+    desc: 'Our AI-powered build process gets to work immediately. No back and forth, no waiting weeks.',
   },
   {
     num: '04',
-    title: 'Deploy & Scale',
-    desc: 'Your solution goes live and we train your team to use it. We stay available after launch—your success is the metric, not the delivery date.',
+    title: 'Delivered in 24 Hours',
+    desc: 'Your service is live and handed off to you within 24 hours. Ready to use from day one.',
   },
 ]
 
