@@ -3,10 +3,11 @@ import { useState } from 'react'
 
 type Props = {
   priceId: string
+  successPath?: string
   label?: string
 }
 
-export default function CheckoutButton({ priceId, label = 'Get Started' }: Props) {
+export default function CheckoutButton({ priceId, successPath = '/thank-you', label = 'Get Started' }: Props) {
   const [loading, setLoading] = useState(false)
 
   if (!priceId) {
@@ -27,7 +28,7 @@ export default function CheckoutButton({ priceId, label = 'Get Started' }: Props
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ priceId }),
+        body: JSON.stringify({ priceId, successPath }),
       })
       const data = await res.json()
       if (data.url) window.location.href = data.url

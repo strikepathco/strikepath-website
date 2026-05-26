@@ -17,6 +17,7 @@ type Tier = {
 type Category = {
   label: string
   eyebrow: string
+  successPath: string
   tiers: Tier[]
 }
 
@@ -24,6 +25,7 @@ const CATEGORIES: Category[] = [
   {
     label: 'AI Chatbots',
     eyebrow: '01',
+    successPath: '/onboarding/chatbot',
     tiers: [
       { name: 'Starter',  price: '$149/mo', note: 'Handles FAQs, captures leads',          priceKey: 'STRIPE_CHATBOT_STARTER'           },
       { name: 'Pro',      price: '$249/mo', note: 'CRM integration + advanced flows',       priceKey: 'STRIPE_CHATBOT_PRO'               },
@@ -32,6 +34,7 @@ const CATEGORIES: Category[] = [
   {
     label: 'AI Receptionist',
     eyebrow: '02',
+    successPath: '/onboarding/receptionist',
     tiers: [
       { name: 'Standard',  price: '$349/mo', note: '~100 calls/month included',           priceKey: 'STRIPE_RECEPTIONIST_STANDARD'     },
       { name: 'Unlimited', price: '$549/mo', note: 'Unlimited calls + CRM sync',          priceKey: 'STRIPE_RECEPTIONIST_UNLIMITED'    },
@@ -40,6 +43,7 @@ const CATEGORIES: Category[] = [
   {
     label: 'AI Automation',
     eyebrow: '03',
+    successPath: '/onboarding/automation',
     tiers: [
       { name: 'Single Workflow', price: '$247/mo', note: 'Single targeted automation',    priceKey: 'STRIPE_AUTOMATION_SINGLE'         },
       { name: 'Multi-Step',      price: '$397/mo', note: 'Multi-platform workflows',      priceKey: 'STRIPE_AUTOMATION_MULTI'          },
@@ -49,6 +53,7 @@ const CATEGORIES: Category[] = [
   {
     label: 'AI Marketing',
     eyebrow: '04',
+    successPath: '/onboarding/marketing',
     tiers: [
       { name: 'Ad Batch',      price: '$197/mo', note: '5–10 AI-generated ads monthly',   priceKey: 'STRIPE_MARKETING_ADBATCH'         },
       { name: 'Monthly Batch', price: '$247/mo', note: 'Fresh ads delivered every month',  priceKey: 'STRIPE_MARKETING_MONTHLY'         },
@@ -198,7 +203,7 @@ export default function ServicesPage() {
                       </p>
 
                       {/* CTA */}
-                      <CheckoutButton priceId={priceId} />
+                      <CheckoutButton priceId={priceId} successPath={cat.successPath} />
                     </div>
                   )
                 })}

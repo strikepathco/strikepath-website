@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId } = await req.json()
+    const { priceId, successPath = '/thank-you' } = await req.json()
 
     if (!priceId) {
       return NextResponse.json({ error: 'Missing priceId' }, { status: 400 })
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${origin}/thank-you`,
+      success_url: `${origin}${successPath}`,
       cancel_url: `${origin}/services`,
     })
 
