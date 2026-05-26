@@ -72,13 +72,6 @@ export default function HomePage() {
       <HeroVideo>
         <div className="px-8 sm:px-14 lg:px-28 pb-16 sm:pb-20" style={{ maxWidth: '72rem' }}>
 
-          <h1
-            className="font-display font-extralight text-bone leading-[0.85] tracking-tight"
-            style={{ fontSize: 'clamp(3.5rem, 11vw, 10rem)' }}
-          >
-            StrikePath
-          </h1>
-
           <p
             className="font-display font-light gold-shine"
             style={{
