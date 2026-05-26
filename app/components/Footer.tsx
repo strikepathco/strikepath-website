@@ -92,6 +92,25 @@ export default function Footer() {
         © {year} StrikePath. All rights reserved.
       </p>
 
+      {/* Phone */}
+      <a
+        href="tel:+19283560570"
+        style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.62rem',
+          fontWeight: 300,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: 'var(--gold)',
+          textDecoration: 'none',
+          transition: 'color 0.25s ease',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.color = 'var(--bone)' }}
+        onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)' }}
+      >
+        +1 (928) 356-0570
+      </a>
+
       {/* Social icons */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
         {SOCIALS.map(({ label, href, icon }) => (

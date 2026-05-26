@@ -25,6 +25,24 @@ export default function ContactPage() {
           Get in touch.
         </h1>
         <ContactForm />
+
+        <div className="hairline" style={{ margin: '2.5rem 0', maxWidth: '200px' }} />
+
+        <a
+          href="tel:+19283560570"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.65rem',
+            fontWeight: 300,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            textDecoration: 'none',
+            display: 'inline-block',
+          }}
+        >
+          +1 (928) 356-0570
+        </a>
       </div>
     </main>
   )
