@@ -1,3 +1,4 @@
+// Creates a Stripe subscription checkout session and returns the redirect URL
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
