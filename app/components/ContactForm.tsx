@@ -14,20 +14,14 @@ const labelStyle: React.CSSProperties = {
   marginBottom: '0.5rem',
 }
 
-const PROJECT_TYPES = ['AI Websites', 'AI Automation', 'AI Chatbots', 'Multiple Services', 'Other']
-
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    projectType: '',
-    description: '',
   })
   const [status, setStatus] = useState<Status>('idle')
 
-  function handleChange(
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -41,8 +35,6 @@ export default function ContactForm() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          'project-type': form.projectType,
-          description: form.description,
         }),
       })
       setStatus(res.ok ? 'success' : 'error')
@@ -111,55 +103,6 @@ export default function ContactForm() {
             required
           />
         </div>
-      </div>
-
-      {/* Project Type */}
-      <div style={{ marginBottom: '2.5rem' }}>
-        <p style={labelStyle}>Project Type</p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
-          {PROJECT_TYPES.map(opt => {
-            const selected = form.projectType === opt
-            return (
-              <button
-                key={opt}
-                type="button"
-                onClick={() => setForm(prev => ({ ...prev, projectType: opt }))}
-                style={{
-                  padding: '0.45rem 1.1rem',
-                  borderRadius: '9999px',
-                  border: `1px solid ${selected ? 'var(--gold)' : 'var(--line-strong)'}`,
-                  background: selected ? 'var(--gold)' : 'transparent',
-                  color: selected ? 'var(--ink)' : 'var(--bone-dim)',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.63rem',
-                  fontWeight: selected ? 400 : 300,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {opt}
-              </button>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* Project Description */}
-      <div style={{ marginBottom: '3rem' }}>
-        <label htmlFor="cf-description" style={labelStyle}>Project Description</label>
-        <textarea
-          id="cf-description"
-          name="description"
-          className="input-field"
-          placeholder="Tell us about your project, timeline, and goals"
-          value={form.description}
-          onChange={handleChange}
-          rows={5}
-          style={{ minHeight: '9rem', resize: 'none', paddingTop: '1rem', lineHeight: 1.75 }}
-        />
       </div>
 
       {/* Submit */}

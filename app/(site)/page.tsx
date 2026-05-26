@@ -107,8 +107,8 @@ export default function HomePage() {
 
           <div className="hairline" style={{ margin: '2.5rem 0', maxWidth: '440px' }} />
 
-          <a href="/contact" className="btn-gold" style={{ textDecoration: 'none' }}>
-            <span>Start a Project</span>
+          <a href="/services" className="btn-gold" style={{ textDecoration: 'none' }}>
+            <span>Check Out Our Services</span>
           </a>
 
         </div>
@@ -253,19 +253,6 @@ export default function HomePage() {
             }}
           >
             Visit our services
-          </a>
-          {' '}or{' '}
-          <a
-            href="/contact"
-            style={{
-              color: 'var(--gold)',
-              textDecoration: 'none',
-              borderBottom: '1px solid var(--gold-deep)',
-              paddingBottom: '1px',
-              transition: 'color 0.2s ease, border-color 0.2s ease',
-            }}
-          >
-            contact us
           </a>
         </p>
       </div>

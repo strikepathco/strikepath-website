@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 const LINKS = [
   { label: 'Services',    href: '/services' },
   { label: 'How We Work', href: '/#process' },
-  { label: 'Contact',     href: '/contact'  },
 ]
 
 export default function Nav() {
@@ -89,9 +88,6 @@ export default function Nav() {
               {label}
             </a>
           ))}
-          <a href="/contact" className="btn-gold" style={{ textDecoration: 'none' }}>
-            <span>Start a Project</span>
-          </a>
         </nav>
 
         {/* Hamburger */}
@@ -162,15 +158,6 @@ export default function Nav() {
             </a>
           ))}
         </nav>
-
-        <a
-          href="#contact"
-          onClick={close}
-          className="btn-gold"
-          style={{ marginTop: '3rem', textDecoration: 'none', alignSelf: 'flex-start' }}
-        >
-          <span>Start a Project</span>
-        </a>
 
         <p
           style={{

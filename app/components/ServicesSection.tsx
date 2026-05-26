@@ -276,8 +276,8 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        <a href="/contact" className="btn-gold" style={{ textDecoration: 'none' }}>
-          <span>Start a Project</span>
+        <a href="/services" className="btn-gold" style={{ textDecoration: 'none' }}>
+          <span>Check Out Our Services</span>
         </a>
 
       </div>
