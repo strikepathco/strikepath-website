@@ -239,22 +239,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className={styles.footer}>
-        <div className={styles.footerInner}>
-          <Link href="/" className={styles.logo}>
-            Strike<span>Path</span>
-          </Link>
-          <div className={styles.footerLinks}>
-            <Link href="/services">Services</Link>
-            <a href="tel:+19283560570">(928) 356-0570</a>
-            <a href="mailto:contact@strikepath.co">contact@strikepath.co</a>
-          </div>
-          <p className={styles.footerCopy}>
-            © {new Date().getFullYear()} StrikePath. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }
