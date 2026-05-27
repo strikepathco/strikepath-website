@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans, Nunito, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import ChatWidget from '@/app/components/ChatWidget'
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: '--font-jakarta',
@@ -78,7 +79,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   )
 }
