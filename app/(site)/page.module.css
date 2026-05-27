@@ -265,10 +265,9 @@
 }
 
 .serviceIcon {
-  font-size: 22px;
   margin-bottom: 14px;
-  width: 38px;
-  height: 38px;
+  width: 52px;
+  height: 52px;
   background: var(--blue-dim);
   border-radius: 9px;
   display: flex;
