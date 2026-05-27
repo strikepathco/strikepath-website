@@ -109,11 +109,6 @@ export default function Home() {
         <div className={styles.heroOverlay} />
 
         <div className={styles.heroContent}>
-          <div className={styles.badge}>
-            <span className={styles.badgeDot} />
-            Phoenix, AZ — Nationwide
-          </div>
-
           <h1 className={styles.h1}>
             We Build the AI.<br />
             <em>You Run the Business.</em>
