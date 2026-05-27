@@ -64,7 +64,7 @@ export default function HeroVideo({ children }: { children: React.ReactNode }) {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(15,11,6,0.18) 0%, rgba(15,11,6,0.55) 55%, rgba(15,11,6,0.85) 100%)',
+              'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.85) 100%)',
           }}
         />
 

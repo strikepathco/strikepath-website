@@ -31,7 +31,7 @@ export default function Nav() {
         className="fixed top-0 inset-x-0 z-50 flex items-center h-16 px-8 sm:px-14 lg:px-28"
         style={{
           transition: 'background 0.4s ease, border-color 0.4s ease',
-          background: scrolled ? 'rgba(15,11,6,0.95)' : 'transparent',
+          background: scrolled ? 'rgba(0,0,0,0.95)' : 'transparent',
           borderBottom: `1px solid ${scrolled ? 'var(--line)' : 'transparent'}`,
           backdropFilter: scrolled ? 'blur(14px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none',

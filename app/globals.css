@@ -5,9 +5,9 @@
    Tailwind color utilities are mapped below via @theme inline.
    ─────────────────────────────────────────────────────────────────────────── */
 :root {
-  --ink:       #0f0b06;
-  --ink-soft:  #181108;
-  --ink-panel: #1f1709;
+  --ink:       #000000;
+  --ink-soft:  #0a0a0a;
+  --ink-panel: #111111;
 
   --gold:       #F4700A;
   --gold-bright: #F78B2E;
