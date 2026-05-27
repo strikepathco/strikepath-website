@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | StrikePath',
-  description: 'Terms governing your use of StrikePath's website and services.',
+  description: "Terms governing your use of StrikePath's website and services.",
   robots: { index: false, follow: false },
 }
 

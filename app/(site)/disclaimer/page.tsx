@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Disclaimer | StrikePath',
-  description: 'Disclaimers regarding StrikePath's AI-powered services and results.',
+  description: "Disclaimers regarding StrikePath's AI-powered services and results.",
   robots: { index: false, follow: false },
 }
 
