@@ -78,8 +78,8 @@ export default function Home() {
     <main className={styles.root}>
       {/* ── NAV ── */}
       <nav className={styles.nav}>
-        <Link href="/" className={styles.logo}>
-          Strike<span>Path</span>
+        <Link href="/" aria-label="StrikePath — home" style={{ display: 'inline-flex', textDecoration: 'none' }}>
+          <img src="/StrikePath.png" alt="StrikePath" style={{ height: '36px', width: 'auto', display: 'block' }} />
         </Link>
         <ul className={styles.navLinks}>
           <li>

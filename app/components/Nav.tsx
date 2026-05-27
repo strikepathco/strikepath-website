@@ -37,30 +37,13 @@ export default function Nav() {
           WebkitBackdropFilter: scrolled ? 'blur(14px)' : 'none',
         }}
       >
-        {/* Logo + wordmark */}
-        <a
-          href="/"
-          aria-label="StrikePath — home"
-          style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', flexShrink: 0, textDecoration: 'none' }}
-        >
+        {/* Logo */}
+        <a href="/" aria-label="StrikePath — home" style={{ flexShrink: 0, textDecoration: 'none', display: 'inline-flex' }}>
           <img
-            src="/strikepath-logo.png"
-            alt=""
-            aria-hidden="true"
-            style={{ height: '48px', width: 'auto', display: 'block', background: 'none' }}
+            src="/StrikePath.png"
+            alt="StrikePath"
+            style={{ height: '36px', width: 'auto', display: 'block' }}
           />
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 500,
-              fontSize: '1.05rem',
-              letterSpacing: '-0.02em',
-              color: 'var(--bone)',
-              lineHeight: 1,
-            }}
-          >
-            StrikePath
-          </span>
         </a>
 
         {/* Desktop links */}
