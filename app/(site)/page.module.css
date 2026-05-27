@@ -1,16 +1,16 @@
 /* ── Brand tokens ── */
 .root {
-  --bg: #09090e;
-  --surf: #111318;
-  --surf2: #16161f;
-  --blue: #3b82f6;
-  --blue-dim: rgba(59, 130, 246, 0.1);
-  --blue-border: rgba(59, 130, 246, 0.22);
-  --txt: #f1f5f9;
-  --mute: #64748b;
-  --dim: #94a3b8;
-  --bdr: rgba(255, 255, 255, 0.06);
-  --bdrs: rgba(255, 255, 255, 0.11);
+  --bg: #0f0b06;
+  --surf: #181108;
+  --surf2: #1f1709;
+  --blue: #F4700A;
+  --blue-dim: rgba(244, 112, 10, 0.10);
+  --blue-border: rgba(244, 112, 10, 0.22);
+  --txt: #ece3cc;
+  --mute: rgba(236, 227, 204, 0.50);
+  --dim: rgba(236, 227, 204, 0.70);
+  --bdr: rgba(244, 112, 10, 0.22);
+  --bdrs: rgba(244, 112, 10, 0.40);
 
   background: var(--bg);
   color: var(--txt);
@@ -29,7 +29,7 @@
   justify-content: space-between;
   padding: 0 32px;
   height: 56px;
-  background: rgba(9, 9, 14, 0.94);
+  background: rgba(15, 11, 6, 0.94);
   border-bottom: 0.5px solid var(--bdr);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -64,17 +64,19 @@
 }
 
 .navCta {
-  background: var(--blue);
-  color: #fff;
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid rgba(244, 112, 10, 0.40);
   border-radius: 7px;
   padding: 8px 16px;
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 .navCta:hover {
-  opacity: 0.88;
+  background: rgba(244, 112, 10, 0.10);
+  border-color: var(--blue);
 }
 
 /* ── HERO ── */
@@ -102,9 +104,9 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(9, 9, 14, 0.4) 0%,
-    rgba(9, 9, 14, 0.6) 60%,
-    rgba(9, 9, 14, 0.95) 100%
+    rgba(15, 11, 6, 0.4) 0%,
+    rgba(15, 11, 6, 0.6) 60%,
+    rgba(15, 11, 6, 0.95) 100%
   );
 }
 
@@ -181,9 +183,9 @@
 }
 
 .btnPrimary {
-  background: var(--blue);
-  color: #fff;
-  border: none;
+  background: transparent;
+  color: var(--blue);
+  border: 1px solid rgba(244, 112, 10, 0.40);
   border-radius: 9px;
   padding: 13px 24px;
   font-size: 14px;
@@ -191,16 +193,17 @@
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  transition: opacity 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 .btnPrimary:hover {
-  opacity: 0.88;
+  background: rgba(244, 112, 10, 0.10);
+  border-color: var(--blue);
 }
 
 .btnSecondary {
   background: transparent;
   color: var(--dim);
-  border: 0.5px solid var(--bdrs);
+  border: 1px solid var(--bdr);
   border-radius: 9px;
   padding: 13px 24px;
   font-size: 14px;
@@ -212,7 +215,7 @@
 }
 .btnSecondary:hover {
   color: var(--txt);
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: var(--bdrs);
 }
 
 .trustRow {
