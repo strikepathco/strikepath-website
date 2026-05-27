@@ -38,12 +38,13 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <a href="/" aria-label="StrikePath — home" style={{ flexShrink: 0, textDecoration: 'none', display: 'inline-flex' }}>
-          <img
-            src="/StrikePath.png"
-            alt="StrikePath"
-            style={{ height: '36px', width: 'auto', display: 'block' }}
-          />
+        <a
+          href="/"
+          aria-label="StrikePath — home"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', flexShrink: 0, textDecoration: 'none' }}
+        >
+          <img src="/strikepath-logo.png" alt="" aria-hidden="true" style={{ height: '28px', width: 'auto', display: 'block' }} />
+          <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: '0.85rem', letterSpacing: '0.08em', color: 'var(--bone-dim)', lineHeight: 1 }}>StrikePath</span>
         </a>
 
         {/* Desktop links */}
