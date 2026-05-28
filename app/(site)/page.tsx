@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./page.module.css";
+import ROICalculator from "@/app/components/ROICalculator";
 
 const services = [
   {
@@ -220,6 +221,20 @@ export default function Home() {
                 <div className={styles.whyDesc}>{w.desc}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ROI CALCULATOR ── */}
+      <section className={styles.section} id="roi">
+        <div className={styles.sectionInner}>
+          <p className={styles.sectionLabel}>§ ROI · See Your Savings</p>
+          <h2 className={styles.sectionTitle}>
+            What is manual work<br />
+            <span style={{ color: 'var(--blue)' }}>actually costing you?</span>
+          </h2>
+          <div style={{ marginTop: '2.5rem' }}>
+            <ROICalculator />
           </div>
         </div>
       </section>
