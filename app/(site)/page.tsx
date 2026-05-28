@@ -228,7 +228,7 @@ export default function Home() {
       {/* ── ROI CALCULATOR ── */}
       <section className={styles.section} id="roi">
         <div className={styles.sectionInner}>
-          <p className={styles.sectionLabel}>§ ROI · See Your Savings</p>
+          <p className={styles.sectionLabel}>ROI · See Your Savings</p>
           <h2 className={styles.sectionTitle}>
             What is manual work<br />
             <span style={{ color: 'var(--blue)' }}>actually costing you?</span>
