@@ -56,7 +56,7 @@ const CATEGORIES: Category[] = [
     successPath: '/onboarding/marketing',
     tiers: [
       { name: 'Ad Batch',      price: '$197/mo', note: '5–10 AI-generated ads monthly',   priceKey: 'STRIPE_MARKETING_ADBATCH'         },
-      { name: 'Monthly Batch', price: '$247/mo', note: 'Fresh ads delivered every month',  priceKey: 'STRIPE_MARKETING_MONTHLY'         },
+      { name: 'Marketing Premium', price: '$497/mo', note: '10–15 static ads + short-form video ads + carousel posts monthly. Built from your brand photos. Full content suite ready to post across Instagram, TikTok, and Facebook.', priceKey: 'STRIPE_MARKETING_PREMIUM' },
     ],
   },
 ]

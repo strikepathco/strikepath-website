@@ -18,7 +18,7 @@ const SERVICE_TYPES = [
   'AI Chatbot',
   'AI Receptionist',
   'AI Automation',
-  'AI Marketing',
+  'AI Marketing Premium',
   'General Inquiry',
 ]
 
