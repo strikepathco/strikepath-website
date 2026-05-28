@@ -45,9 +45,10 @@ const CATEGORIES: Category[] = [
     eyebrow: '03',
     successPath: '/onboarding/automation',
     tiers: [
-      { name: 'Single Workflow', price: '$247/mo', note: 'One fully built and managed automation that eliminates a repetitive task in your business — whether that\'s lead follow-up, appointment reminders, or data entry.', priceKey: 'STRIPE_AUTOMATION_SINGLE' },
-      { name: 'Multi-Step',      price: '$397/mo', note: 'Multiple connected automations that talk to each other across your tools — CRM, email, calendar, forms, and more. Your business runs while you focus on growth.', priceKey: 'STRIPE_AUTOMATION_MULTI' },
-      { name: 'Full Stack',      price: '$697/mo', note: 'A complete overhaul of your business operations. Every manual, repetitive process gets automated. Built, tested, and managed for you from day one.', priceKey: 'STRIPE_AUTOMATION_FULLSTACK' },
+      { name: 'Lead Follow-Up System',          price: '$247/mo', note: 'New leads get an automatic email and CRM entry the moment they reach out. Your business responds in seconds, every time, without you touching anything.',                                                              priceKey: 'STRIPE_AUTOMATION_LEAD_FOLLOWUP'    },
+      { name: 'Review Request System',          price: '$247/mo', note: 'After every completed job, your customer automatically gets a text asking for a Google review. More 5-star ratings on autopilot, no manual follow-up needed.',                                                          priceKey: 'STRIPE_AUTOMATION_REVIEW_REQUEST'   },
+      { name: 'Appointment No-Show Recovery',   price: '$397/mo', note: 'Missed appointments trigger an instant reschedule offer sent directly to the client. Stop losing revenue to no-shows with a recovery system running around the clock.',                                                priceKey: 'STRIPE_AUTOMATION_NOSHOW_RECOVERY'  },
+      { name: 'Missed Call Text-Back',          price: '$297/mo', note: 'Every missed call instantly gets a personalized text so no lead goes cold. Turn missed opportunities into booked appointments without ever picking up the phone.',                                                     priceKey: 'STRIPE_AUTOMATION_MISSED_CALL'      },
     ],
   },
   {
