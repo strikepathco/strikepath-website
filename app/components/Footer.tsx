@@ -179,6 +179,27 @@ export default function Footer() {
         ))}
       </div>
 
+      {/* Subscription management */}
+      <a
+        href="https://billing.stripe.com/p/login/eVq9AMgkgbArcB6aAjbsc00"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.55rem',
+          fontWeight: 300,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: 'var(--bone-dim)',
+          textDecoration: 'none',
+          transition: 'color 0.25s ease',
+        }}
+        onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)' }}
+        onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone-dim)' }}
+      >
+        Manage or cancel subscription
+      </a>
+
     </footer>
   )
 }

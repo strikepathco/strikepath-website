@@ -34,11 +34,31 @@ export default function ThankYouPage() {
           style={{
             fontSize: 'clamp(1rem, 1.4vw, 1.125rem)',
             lineHeight: 1.9,
-            marginBottom: '3rem',
+            marginBottom: '2rem',
           }}
         >
           Our team will reach out within 24 hours to get everything set up for you.
         </p>
+
+        <a
+          href="https://billing.stripe.com/p/login/eVq9AMgkgbArcB6aAjbsc00"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.62rem',
+            fontWeight: 300,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--bone-dim)',
+            textDecoration: 'none',
+            borderBottom: '1px solid var(--line)',
+            paddingBottom: '0.1em',
+            transition: 'color 0.2s ease, border-color 0.2s ease',
+          }}
+        >
+          Manage or cancel subscription
+        </a>
 
       </div>
     </main>
