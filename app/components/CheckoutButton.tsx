@@ -5,10 +5,25 @@ type Props = {
   priceId: string
   successPath?: string
   label?: string
+  checkoutUrl?: string
 }
 
-export default function CheckoutButton({ priceId, successPath = '/thank-you', label = 'Get Started' }: Props) {
+export default function CheckoutButton({ priceId, successPath = '/thank-you', label = 'Get Started', checkoutUrl }: Props) {
   const [loading, setLoading] = useState(false)
+
+  if (checkoutUrl) {
+    return (
+      <a
+        href={checkoutUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-gold"
+        style={{ textDecoration: 'none', display: 'block', textAlign: 'center' }}
+      >
+        <span>{label}</span>
+      </a>
+    )
+  }
 
   if (!priceId) {
     return (
