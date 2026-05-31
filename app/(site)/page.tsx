@@ -175,6 +175,19 @@ export default function Home() {
                   <span className={styles.priceFrom}>from</span>
                   <span className={styles.priceAmt}>{s.from}</span>
                   <span className={styles.pricePeriod}>/mo</span>
+                  <span style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '9px',
+                    fontWeight: 400,
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--gold)',
+                    border: '1px solid var(--gold)',
+                    borderRadius: '3px',
+                    padding: '2px 6px',
+                    whiteSpace: 'nowrap',
+                    lineHeight: 1,
+                  }}>Launch Special</span>
                 </div>
               </Link>
             ))}

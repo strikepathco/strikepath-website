@@ -187,7 +187,21 @@ export default function ServicesPage() {
                           lineHeight: 1.1,
                         }}
                       >
-                        {tier.price}
+                        {tier.price}{' '}
+                        <span style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '9px',
+                          fontWeight: 400,
+                          letterSpacing: '0.12em',
+                          textTransform: 'uppercase',
+                          color: 'var(--gold)',
+                          border: '1px solid var(--gold)',
+                          borderRadius: '3px',
+                          padding: '2px 6px',
+                          verticalAlign: 'middle',
+                          whiteSpace: 'nowrap',
+                          lineHeight: 1,
+                        }}>Launch Special</span>
                       </p>
 
                       {/* Note */}
