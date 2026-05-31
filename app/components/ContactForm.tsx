@@ -26,11 +26,13 @@ export default function ContactForm() {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    serviceType: '',
+    phone: '',
+    message: '',
+    service: '',
   })
   const [status, setStatus] = useState<Status>('idle')
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleChange(e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -38,13 +40,15 @@ export default function ContactForm() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch('https://formspree.io/f/mwvzljzb', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          'service-type': form.serviceType,
+          phone: form.phone,
+          message: form.message,
+          service: form.service,
         }),
       })
       setStatus(res.ok ? 'success' : 'error')
@@ -115,17 +119,31 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Phone */}
+      <div style={{ marginBottom: '2.5rem' }}>
+        <label htmlFor="cf-phone" style={labelStyle}>Phone <span style={{ opacity: 0.45 }}>(optional)</span></label>
+        <input
+          id="cf-phone"
+          type="tel"
+          name="phone"
+          className="input-field"
+          placeholder="+1 (555) 000-0000"
+          value={form.phone}
+          onChange={handleChange}
+        />
+      </div>
+
       {/* Service Type */}
-      <div style={{ marginBottom: '3rem' }}>
+      <div style={{ marginBottom: '2.5rem' }}>
         <p style={labelStyle}>Service</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
           {SERVICE_TYPES.map(opt => {
-            const selected = form.serviceType === opt
+            const selected = form.service === opt
             return (
               <button
                 key={opt}
                 type="button"
-                onClick={() => setForm(prev => ({ ...prev, serviceType: opt }))}
+                onClick={() => setForm(prev => ({ ...prev, service: opt }))}
                 style={{
                   padding: '0.45rem 1.1rem',
                   borderRadius: '9999px',
@@ -147,6 +165,22 @@ export default function ContactForm() {
             )
           })}
         </div>
+      </div>
+
+      {/* Message */}
+      <div style={{ marginBottom: '3rem' }}>
+        <label htmlFor="cf-message" style={labelStyle}>Message</label>
+        <textarea
+          id="cf-message"
+          name="message"
+          className="input-field"
+          placeholder="Tell us about your business and what you're looking to automate…"
+          value={form.message}
+          onChange={handleChange}
+          required
+          rows={5}
+          style={{ resize: 'vertical', minHeight: '120px' }}
+        />
       </div>
 
       {/* Submit */}
