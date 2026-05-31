@@ -75,7 +75,7 @@ export default function TermsPage() {
 
         <h2 style={sectionHeading}>Refund Policy</h2>
         <p style={body}>
-          All sales are final. We do not offer refunds for any reason, including partial months, unused services, or dissatisfaction with results. By purchasing, you acknowledge and agree to this no-refund policy.
+          All sales are final. We do not offer refunds for dissatisfaction with results, partial months, or unused services. The only exception is if StrikePath fails to deliver your service within 48 hours of receiving your completed onboarding form — in that case, you may request a full refund within 72 hours of purchase by emailing contact@strikepath.co. By purchasing, you acknowledge and agree to this policy.
         </p>
 
         <h2 style={sectionHeading}>Delivery</h2>

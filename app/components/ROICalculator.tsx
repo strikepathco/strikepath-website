@@ -387,7 +387,7 @@ export default function ROICalculator() {
           marginTop: '1.5rem',
           lineHeight: 1.7,
         }}>
-          *Estimates based on average client results. Actual savings vary.
+          *Projected savings based on estimated inputs. Actual results vary and are not guaranteed.
         </p>
       </div>
     </>
