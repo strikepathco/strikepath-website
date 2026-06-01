@@ -121,11 +121,24 @@ export default function ROICalculator() {
   const [recRate,    setRecRate]    = useState(50)
   const [recPlan,    setRecPlan]    = useState('4188')
 
-  // automation
-  const [autoHours, setAutoHours] = useState(10)
-  const [autoRate,  setAutoRate]  = useState(50)
-  const [autoWeeks, setAutoWeeks] = useState(48)
-  const [autoPlan,  setAutoPlan]  = useState('3564')
+  // automation — which workflow
+  const [autoType, setAutoType] = useState('lead-followup')
+  // lead follow-up
+  const [lfLeads,       setLfLeads]       = useState(20)
+  const [lfNotFollowed, setLfNotFollowed] = useState(60)
+  const [lfDealValue,   setLfDealValue]   = useState(500)
+  // review request
+  const [rrCustomers,      setRrCustomers]      = useState(80)
+  const [rrCurrentReviews, setRrCurrentReviews] = useState(3)
+  const [rrReviewValue,    setRrReviewValue]    = useState(40)
+  // no-show recovery
+  const [nsAppts,      setNsAppts]      = useState(30)
+  const [nsNoShowRate, setNsNoShowRate] = useState(20)
+  const [nsApptValue,  setNsApptValue]  = useState(150)
+  // missed call text-back
+  const [mcMissedCalls,   setMcMissedCalls]   = useState(15)
+  const [mcConvertRate,   setMcConvertRate]   = useState(25)
+  const [mcCustomerValue, setMcCustomerValue] = useState(300)
 
   // marketing
   const [mktHours, setMktHours] = useState(5)
@@ -145,8 +158,23 @@ export default function ROICalculator() {
       return { annualCost: c, savings: c * 0.75, investment: Number(recPlan) }
     }
     if (activeTab === 'automation') {
-      const c = autoHours * autoWeeks * autoRate
-      return { annualCost: c, savings: c * 0.60, investment: Number(autoPlan) }
+      if (autoType === 'lead-followup') {
+        const annualCost = lfLeads * (lfNotFollowed / 100) * lfDealValue * 52 * 0.15
+        return { annualCost, savings: annualCost - 247 * 12, investment: 247 * 12 }
+      }
+      if (autoType === 'review-request') {
+        const newReviews = rrCustomers * 0.18
+        const annualCost = Math.max(0, (newReviews - rrCurrentReviews) * rrReviewValue * 12)
+        return { annualCost, savings: annualCost - 247 * 12, investment: 247 * 12 }
+      }
+      if (autoType === 'noshow-recovery') {
+        const annualCost = nsAppts * (nsNoShowRate / 100) * nsApptValue * 52
+        return { annualCost, savings: annualCost * 0.35 - 397 * 12, investment: 397 * 12 }
+      }
+      // missed-call
+      const annualCost = mcMissedCalls * (mcConvertRate / 100) * mcCustomerValue * 52
+      const savings    = mcMissedCalls * 0.40 * (mcConvertRate / 100) * mcCustomerValue * 52 - 297 * 12
+      return { annualCost, savings, investment: 297 * 12 }
     }
     // marketing
     const c = mktHours * 48 * mktRate + mktSpend * 12
@@ -291,14 +319,69 @@ export default function ROICalculator() {
             </>}
 
             {activeTab === 'automation' && <>
-              <Slider label="Hours / week on manual tasks" min={1}  max={40}  value={autoHours} onChange={setAutoHours} display={`${autoHours} hrs`} />
-              <Slider label="Your hourly rate"             min={25} max={500} step={5} value={autoRate} onChange={setAutoRate} display={`$${autoRate}/hr`} />
-              <Slider label="Working weeks / year"         min={30} max={52}  value={autoWeeks} onChange={setAutoWeeks} display={`${autoWeeks} wks`} />
-              <PlanSelect value={autoPlan} onChange={setAutoPlan} options={[
-                { value: '3564', label: 'Single Workflow — $297/mo ($3,564/yr)' },
-                { value: '4764', label: 'Multi-Step — $397/mo ($4,764/yr)' },
-                { value: '8364', label: 'Full Stack — $697/mo ($8,364/yr)' },
-              ]} />
+              {/* Automation selector */}
+              <div style={{ marginBottom: '1.75rem' }}>
+                <span style={{ ...monoXs, display: 'block', marginBottom: '0.75rem' }}>Which Automation?</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                  {([
+                    { id: 'lead-followup',   label: 'Lead Follow-Up',       price: '$247/mo' },
+                    { id: 'review-request',  label: 'Review Request',        price: '$247/mo' },
+                    { id: 'noshow-recovery', label: 'No-Show Recovery',      price: '$397/mo' },
+                    { id: 'missed-call',     label: 'Missed Call Text-Back', price: '$297/mo' },
+                  ] as { id: string; label: string; price: string }[]).map(opt => {
+                    const sel = autoType === opt.id
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => setAutoType(opt.id)}
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.57rem',
+                          fontWeight: sel ? 400 : 300,
+                          letterSpacing: '0.14em',
+                          textTransform: 'uppercase',
+                          padding: '0.5rem 0.85rem',
+                          border: `1px solid ${sel ? 'var(--gold)' : 'var(--line-strong)'}`,
+                          background: sel ? 'rgba(232,160,76,0.10)' : 'transparent',
+                          color: sel ? 'var(--gold)' : 'var(--bone-dim)',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+                        }}
+                      >
+                        <span>{opt.label}</span>
+                        <span style={{ opacity: 0.65 }}>{opt.price}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {autoType === 'lead-followup' && <>
+                <Slider label="New Leads / Week"      min={1}   max={200}   value={lfLeads}       onChange={setLfLeads}       display={String(lfLeads)} />
+                <Slider label="Leads Not Followed Up" min={0}   max={100}   value={lfNotFollowed} onChange={setLfNotFollowed} display={`${lfNotFollowed}%`} />
+                <Slider label="Avg Deal Value"         min={100} max={10000} step={100} value={lfDealValue} onChange={setLfDealValue} display={`$${lfDealValue.toLocaleString()}`} />
+              </>}
+
+              {autoType === 'review-request' && <>
+                <Slider label="Customers / Month"        min={10} max={500} value={rrCustomers}      onChange={setRrCustomers}      display={String(rrCustomers)} />
+                <Slider label="Reviews You Get Now / Mo" min={0}  max={100} value={rrCurrentReviews} onChange={setRrCurrentReviews} display={String(rrCurrentReviews)} />
+                <Slider label="Value Per New Review"     min={5}  max={200} value={rrReviewValue}    onChange={setRrReviewValue}    display={`$${rrReviewValue}`} />
+              </>}
+
+              {autoType === 'noshow-recovery' && <>
+                <Slider label="Appointments / Week"   min={5}  max={200} value={nsAppts}      onChange={setNsAppts}      display={String(nsAppts)} />
+                <Slider label="No-Show Rate"          min={5}  max={50}  value={nsNoShowRate} onChange={setNsNoShowRate} display={`${nsNoShowRate}%`} />
+                <Slider label="Avg Appointment Value" min={50} max={500} step={5} value={nsApptValue} onChange={setNsApptValue} display={`$${nsApptValue}`} />
+              </>}
+
+              {autoType === 'missed-call' && <>
+                <Slider label="Missed Calls / Week"     min={1}  max={100}  value={mcMissedCalls}   onChange={setMcMissedCalls}   display={String(mcMissedCalls)} />
+                <Slider label="% That Become Customers" min={5}  max={60}   value={mcConvertRate}   onChange={setMcConvertRate}   display={`${mcConvertRate}%`} />
+                <Slider label="Avg Customer Value"      min={50} max={2000} step={10} value={mcCustomerValue} onChange={setMcCustomerValue} display={`$${mcCustomerValue.toLocaleString()}`} />
+              </>}
             </>}
 
             {activeTab === 'marketing' && <>
@@ -353,7 +436,7 @@ export default function ROICalculator() {
                 this year.
               </p>
               <a
-                href="/services"
+                href={activeTab === 'automation' ? 'https://strikepath.co/onboarding/automation' : '/services'}
                 style={{
                   display: 'inline-block',
                   fontFamily: 'var(--font-mono)',
