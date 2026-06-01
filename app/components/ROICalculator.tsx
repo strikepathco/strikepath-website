@@ -165,7 +165,8 @@ export default function ROICalculator() {
       if (autoType === 'review-request') {
         const newReviews = rrCustomers * 0.18
         const annualCost = Math.max(0, (newReviews - rrCurrentReviews) * rrReviewValue * 12)
-        return { annualCost, savings: annualCost - 247 * 12, investment: 247 * 12 }
+        const savings = Math.max(0, annualCost - 247 * 12)
+        return { annualCost, savings, investment: 247 * 12 }
       }
       if (autoType === 'noshow-recovery') {
         const annualCost = nsAppts * (nsNoShowRate / 100) * nsApptValue * 52
@@ -184,11 +185,14 @@ export default function ROICalculator() {
   const roiPct         = investment > 0 ? ((savings - investment) / investment) * 100 : 0
   const paybackMonths  = savings > 0 ? Math.ceil(investment / (savings / 12)) : null
 
+  const displaySavings = Math.max(0, savings)
+  const displayRoi     = Math.max(0, roiPct)
+
   const metrics = [
-    { label: 'Annual cost',       value: dollar(annualCost),                                                          accent: false },
-    { label: 'Est. annual savings', value: dollar(savings),                                                           accent: true  },
-    { label: 'First-year ROI',    value: roiPct >= 0 ? `+${Math.round(roiPct)}%` : `${Math.round(roiPct)}%`,         accent: roiPct > 0 },
-    { label: 'Payback period',    value: paybackMonths !== null ? `${paybackMonths} mo` : '—',                        accent: false },
+    { label: 'Annual cost',         value: dollar(annualCost),                                                              accent: false },
+    { label: 'Est. annual savings', value: dollar(displaySavings),                                                          accent: displaySavings > 0 },
+    { label: 'First-year ROI',      value: displayRoi > 0 ? `+${Math.round(displayRoi)}%` : '0%',                          accent: displayRoi > 0 },
+    { label: 'Payback period',      value: paybackMonths !== null ? `${paybackMonths} mo` : '—',                            accent: false },
   ]
 
   return (
@@ -366,8 +370,8 @@ export default function ROICalculator() {
               </>}
 
               {autoType === 'review-request' && <>
-                <Slider label="Customers / Month"        min={10} max={500} value={rrCustomers}      onChange={setRrCustomers}      display={String(rrCustomers)} />
-                <Slider label="Reviews You Get Now / Mo" min={0}  max={100} value={rrCurrentReviews} onChange={setRrCurrentReviews} display={String(rrCurrentReviews)} />
+                <Slider label="Customers / Month"        min={10} max={500} value={rrCustomers}      onChange={v => { setRrCustomers(v); setRrCurrentReviews(prev => Math.min(prev, Math.floor(v * 0.18))) }} display={String(rrCustomers)} />
+                <Slider label="Reviews You Get Now / Mo" min={0}  max={Math.floor(rrCustomers * 0.18)} value={rrCurrentReviews} onChange={setRrCurrentReviews} display={String(rrCurrentReviews)} />
                 <Slider label="Value Per New Review"     min={5}  max={200} value={rrReviewValue}    onChange={setRrReviewValue}    display={`$${rrReviewValue}`} />
               </>}
 
