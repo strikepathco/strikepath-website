@@ -11,7 +11,7 @@ export default function MarketingBasicOnboarding() {
     <OnboardingPage
       eyebrow="AI Marketing Ad Batch · Onboarding"
       heading="Let's launch your AI marketing."
-      tallyId="TALLY_FORM_ID"
+      tallyId="Xx2AaO"
       formTitle="AI Marketing Ad Batch Onboarding Form"
     />
   )

@@ -11,7 +11,7 @@ export default function ChatbotProOnboarding() {
     <OnboardingPage
       eyebrow="AI Chatbot Pro · Onboarding"
       heading="Let's build your Pro chatbot."
-      tallyId="TALLY_FORM_ID"
+      tallyId="J9Wjb4"
       formTitle="AI Chatbot Pro Onboarding Form"
     />
   )
