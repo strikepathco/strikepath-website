@@ -28,8 +28,8 @@ const CATEGORIES: Category[] = [
     eyebrow: '01',
     successPath: '/onboarding/chatbot',
     tiers: [
-      { name: 'Starter',  price: '$149/mo', note: 'A 24/7 AI chatbot trained on your business. Answers common customer questions instantly, captures lead info, and never misses a visitor — even at 2am.', priceKey: 'STRIPE_CHATBOT_STARTER' },
-      { name: 'Pro',      price: '$249/mo', note: 'Everything in Starter plus direct integration with your CRM. Automatically logs every lead, triggers follow-up sequences, and handles complex multi-step conversations.', priceKey: 'STRIPE_CHATBOT_PRO' },
+      { name: 'Starter',  price: '$149/mo', note: 'A 24/7 AI chatbot trained on your business. Answers common customer questions instantly, captures lead info, and never misses a visitor — even at 2am.', priceKey: 'STRIPE_CHATBOT_STARTER', checkoutUrl: 'https://buy.stripe.com/7sYaEQgkgfQHeJebEnbsc09' },
+      { name: 'Pro',      price: '$249/mo', note: 'Everything in Starter plus direct integration with your CRM. Automatically logs every lead, triggers follow-up sequences, and handles complex multi-step conversations.', priceKey: 'STRIPE_CHATBOT_PRO', checkoutUrl: 'https://buy.stripe.com/7sYbIU8ROcEv58EaAjbsc08' },
     ],
   },
   {
@@ -37,8 +37,8 @@ const CATEGORIES: Category[] = [
     eyebrow: '02',
     successPath: '/onboarding/receptionist',
     tiers: [
-      { name: 'Standard',  price: '$349/mo', note: 'An AI phone agent that answers calls, handles FAQs, and takes messages — up to 100 calls per month. Sounds human, works around the clock, never puts anyone on hold.', priceKey: 'STRIPE_RECEPTIONIST_STANDARD' },
-      { name: 'Unlimited', price: '$549/mo', note: 'All the features of Standard with no call limits. Includes full CRM sync so every call is automatically logged with caller info and conversation summary.', priceKey: 'STRIPE_RECEPTIONIST_UNLIMITED' },
+      { name: 'Standard',  price: '$349/mo', note: 'An AI phone agent that answers calls, handles FAQs, and takes messages — up to 100 calls per month. Sounds human, works around the clock, never puts anyone on hold.', priceKey: 'STRIPE_RECEPTIONIST_STANDARD', checkoutUrl: 'https://buy.stripe.com/aFacMYc40cEvgRmcIrbsc0a' },
+      { name: 'Unlimited', price: '$549/mo', note: 'All the features of Standard with no call limits. Includes full CRM sync so every call is automatically logged with caller info and conversation summary.', priceKey: 'STRIPE_RECEPTIONIST_UNLIMITED', checkoutUrl: 'https://buy.stripe.com/00w9AM0libArgRm4bVbsc07' },
     ],
   },
   {
@@ -57,8 +57,8 @@ const CATEGORIES: Category[] = [
     eyebrow: '04',
     successPath: '/onboarding/marketing',
     tiers: [
-      { name: 'Ad Batch',      price: '$197/mo', note: '5–10 AI-generated ads delivered every month, ready to run on any platform. Scroll-stopping visuals and copy built around your brand and target audience.', priceKey: 'STRIPE_MARKETING_ADBATCH' },
-      { name: 'Marketing Premium', price: '$497/mo', note: '10–15 static ads + short-form video ads + carousel posts monthly. Built from your brand photos. Full content suite ready to post across Instagram, TikTok, and Facebook.', priceKey: 'STRIPE_MARKETING_PREMIUM' },
+      { name: 'Ad Batch',          price: '$197/mo', note: '5–10 AI-generated ads delivered every month, ready to run on any platform. Scroll-stopping visuals and copy built around your brand and target audience.', priceKey: 'STRIPE_MARKETING_ADBATCH',  checkoutUrl: 'https://buy.stripe.com/9B6cMY8RO33V0SogYHbsc06' },
+      { name: 'Marketing Premium', price: '$497/mo', note: '10–15 static ads + short-form video ads + carousel posts monthly. Built from your brand photos. Full content suite ready to post across Instagram, TikTok, and Facebook.', priceKey: 'STRIPE_MARKETING_PREMIUM', checkoutUrl: 'https://buy.stripe.com/14A9AM6JG6g7dFa8sbbsc04' },
     ],
   },
 ]
