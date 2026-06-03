@@ -122,11 +122,7 @@ export default function ROICalculator() {
   const [recPlan,    setRecPlan]    = useState('4188')
 
   // automation — which workflow
-  const [autoType, setAutoType] = useState('lead-followup')
-  // lead follow-up
-  const [lfLeads,       setLfLeads]       = useState(20)
-  const [lfNotFollowed, setLfNotFollowed] = useState(60)
-  const [lfDealValue,   setLfDealValue]   = useState(500)
+  const [autoType, setAutoType] = useState('review-request')
   // review request
   const [rrCustomers,      setRrCustomers]      = useState(80)
   const [rrCurrentReviews, setRrCurrentReviews] = useState(3)
@@ -158,10 +154,6 @@ export default function ROICalculator() {
       return { annualCost: c, savings: c * 0.75, investment: Number(recPlan) }
     }
     if (activeTab === 'automation') {
-      if (autoType === 'lead-followup') {
-        const annualCost = lfLeads * (lfNotFollowed / 100) * lfDealValue * 52 * 0.15
-        return { annualCost, savings: annualCost - 247 * 12, investment: 247 * 12 }
-      }
       if (autoType === 'review-request') {
         const newReviews = rrCustomers * 0.18
         const annualCost = Math.max(0, (newReviews - rrCurrentReviews) * rrReviewValue * 12)
@@ -328,7 +320,6 @@ export default function ROICalculator() {
                 <span style={{ ...monoXs, display: 'block', marginBottom: '0.75rem' }}>Which Automation?</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                   {([
-                    { id: 'lead-followup',   label: 'Lead Follow-Up',       price: '$247/mo' },
                     { id: 'review-request',  label: 'Review Request',        price: '$247/mo' },
                     { id: 'noshow-recovery', label: 'No-Show Recovery',      price: '$397/mo' },
                     { id: 'missed-call',     label: 'Missed Call Text-Back', price: '$297/mo' },
@@ -362,12 +353,6 @@ export default function ROICalculator() {
                   })}
                 </div>
               </div>
-
-              {autoType === 'lead-followup' && <>
-                <Slider label="New Leads / Week"      min={1}   max={200}   value={lfLeads}       onChange={setLfLeads}       display={String(lfLeads)} />
-                <Slider label="Leads Not Followed Up" min={0}   max={100}   value={lfNotFollowed} onChange={setLfNotFollowed} display={`${lfNotFollowed}%`} />
-                <Slider label="Avg Deal Value"         min={100} max={10000} step={100} value={lfDealValue} onChange={setLfDealValue} display={`$${lfDealValue.toLocaleString()}`} />
-              </>}
 
               {autoType === 'review-request' && <>
                 <Slider label="Customers / Month"        min={10} max={500} value={rrCustomers}      onChange={v => { setRrCustomers(v); setRrCurrentReviews(prev => Math.min(prev, Math.floor(v * 0.18))) }} display={String(rrCustomers)} />
