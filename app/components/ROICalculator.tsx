@@ -311,10 +311,41 @@ export default function ROICalculator() {
               <Slider label="Calls per week"     min={1}  max={200} value={recCalls}   onChange={setRecCalls}   display={String(recCalls)} />
               <Slider label="Avg. call length"   min={2}  max={20}  value={recMinutes} onChange={setRecMinutes} display={`${recMinutes} min`} />
               <Slider label="Your hourly rate"   min={25} max={500} step={5} value={recRate} onChange={setRecRate} display={`$${recRate}/hr`} />
-              <PlanSelect value={recPlan} onChange={setRecPlan} options={[
-                { value: '4188', label: 'Standard — $349/mo ($4,188/yr)' },
-                { value: '6588', label: 'Premium — $549/mo ($6,588/yr)' },
-              ]} />
+              <div>
+                <span style={{ ...monoXs, display: 'block', marginBottom: '0.65rem' }}>Plan</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  {([
+                    { value: '4188', label: 'Standard — $349/mo' },
+                    { value: '6588', label: 'Premium — $549/mo' },
+                  ] as { value: string; label: string }[]).map(opt => {
+                    const active = recPlan === opt.value
+                    return (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setRecPlan(opt.value)}
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.58rem',
+                          fontWeight: active ? 400 : 300,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          padding: '0.5rem 1.1rem',
+                          borderRadius: '9999px',
+                          border: `1px solid ${active ? 'var(--gold)' : 'var(--line-strong)'}`,
+                          background: active ? 'var(--gold)' : 'transparent',
+                          color: active ? '#000' : 'var(--bone-dim)',
+                          cursor: 'pointer',
+                          transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {opt.label}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
             </>}
 
             {activeTab === 'automation' && <>
