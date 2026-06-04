@@ -313,7 +313,7 @@ export default function ROICalculator() {
               <Slider label="Your hourly rate"   min={25} max={500} step={5} value={recRate} onChange={setRecRate} display={`$${recRate}/hr`} />
               <PlanSelect value={recPlan} onChange={setRecPlan} options={[
                 { value: '4188', label: 'Standard — $349/mo ($4,188/yr)' },
-                { value: '6588', label: 'Unlimited — $549/mo ($6,588/yr)' },
+                { value: '6588', label: 'Premium — $549/mo ($6,588/yr)' },
               ]} />
             </>}
 

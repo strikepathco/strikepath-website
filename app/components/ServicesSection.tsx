@@ -35,7 +35,7 @@ const SERVICES: Service[] = [
       'A virtual receptionist that answers calls, qualifies leads, and books appointments — no hold music, no missed calls, no overtime.',
     tiers: [
       { name: 'Standard',  price: '$349/mo', note: '~100 calls/month included.' },
-      { name: 'Unlimited', price: '$549/mo', note: 'Unlimited calls, CRM sync, and full call transcripts.' },
+      { name: 'Premium', price: '$549/mo', note: 'Unlimited calls, CRM sync, and full call transcripts.' },
     ],
   },
   {

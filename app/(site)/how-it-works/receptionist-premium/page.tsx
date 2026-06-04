@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'AI Receptionist Unlimited — How It Works | StrikePath',
-  description: 'See exactly how the AI Receptionist Unlimited works, what you need to get started, and what we handle for you.',
+  title: 'AI Receptionist Premium — How It Works | StrikePath',
+  description: 'See exactly how the AI Receptionist Premium works, what you need to get started, and what we handle for you.',
 }
 
 const sectionLabel: React.CSSProperties = {
@@ -24,7 +24,7 @@ const body: React.CSSProperties = {
   color: 'rgba(236, 227, 204, 0.70)',
 }
 
-export default function HowItWorksReceptionistUnlimited() {
+export default function HowItWorksReceptionistPremium() {
   return (
     <main className="px-8 sm:px-14 lg:px-28 py-20 md:py-32">
       <div style={{ maxWidth: '42rem' }}>
@@ -34,7 +34,7 @@ export default function HowItWorksReceptionistUnlimited() {
           className="font-display font-extralight text-bone"
           style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', letterSpacing: '-0.025em', lineHeight: 0.95, marginBottom: '0.75rem' }}
         >
-          AI Receptionist — Unlimited
+          AI Receptionist — Premium
         </h1>
         <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 300, letterSpacing: '0.2em', color: 'var(--gold)', marginBottom: '3rem' }}>
           $549/mo

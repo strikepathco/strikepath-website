@@ -39,7 +39,7 @@ const CATEGORIES: Category[] = [
     successPath: '/onboarding/receptionist',
     tiers: [
       { name: 'Standard',  price: '$349/mo', note: 'An AI phone agent that answers calls, handles FAQs, and takes messages — up to 100 calls per month. Sounds human, works around the clock, never puts anyone on hold.', priceKey: 'STRIPE_RECEPTIONIST_STANDARD', checkoutUrl: 'https://buy.stripe.com/aFacMYc40cEvgRmcIrbsc0a', howItWorksPath: '/how-it-works/receptionist-standard' },
-      { name: 'Unlimited', price: '$549/mo', note: 'All the features of Standard with no call limits. Includes full CRM sync so every call is automatically logged with caller info and conversation summary.', priceKey: 'STRIPE_RECEPTIONIST_UNLIMITED', checkoutUrl: 'https://buy.stripe.com/00w9AM0libArgRm4bVbsc07', howItWorksPath: '/how-it-works/receptionist-unlimited' },
+      { name: 'Premium', price: '$549/mo', note: 'All the features of Standard with no call limits. Includes full CRM sync so every call is automatically logged with caller info and conversation summary.', priceKey: 'STRIPE_RECEPTIONIST_UNLIMITED', checkoutUrl: 'https://buy.stripe.com/00w9AM0libArgRm4bVbsc07', howItWorksPath: '/how-it-works/receptionist-premium' },
     ],
   },
   {
