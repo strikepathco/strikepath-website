@@ -127,10 +127,10 @@ export default function ROICalculator() {
   const [rrCustomers,      setRrCustomers]      = useState(80)
   const [rrCurrentReviews, setRrCurrentReviews] = useState(3)
   const [rrReviewValue,    setRrReviewValue]    = useState(40)
-  // no-show recovery
-  const [nsAppts,      setNsAppts]      = useState(30)
-  const [nsNoShowRate, setNsNoShowRate] = useState(20)
-  const [nsApptValue,  setNsApptValue]  = useState(150)
+  // new lead alert
+  const [nlaLeads,         setNlaLeads]         = useState(20)
+  const [nlaMissedPct,     setNlaMissedPct]     = useState(30)
+  const [nlaCustomerValue, setNlaCustomerValue] = useState(500)
   // missed call text-back
   const [mcMissedCalls,   setMcMissedCalls]   = useState(15)
   const [mcConvertRate,   setMcConvertRate]   = useState(25)
@@ -160,9 +160,12 @@ export default function ROICalculator() {
         const savings = Math.max(0, annualCost - 247 * 12)
         return { annualCost, savings, investment: 247 * 12 }
       }
-      if (autoType === 'noshow-recovery') {
-        const annualCost = nsAppts * (nsNoShowRate / 100) * nsApptValue * 52
-        return { annualCost, savings: annualCost * 0.35 - 397 * 12, investment: 397 * 12 }
+      if (autoType === 'new-lead-alert') {
+        const missedPerWeek    = nlaLeads * (nlaMissedPct / 100)
+        const recoveredPerYear = missedPerWeek * 52 * 0.30
+        const annualCost       = missedPerWeek * 52 * nlaCustomerValue
+        const savings          = recoveredPerYear * nlaCustomerValue - 197 * 12
+        return { annualCost, savings, investment: 197 * 12 }
       }
       // missed-call
       const annualCost = mcMissedCalls * (mcConvertRate / 100) * mcCustomerValue * 52
@@ -321,7 +324,7 @@ export default function ROICalculator() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                   {([
                     { id: 'review-request',  label: 'Review Request',        price: '$247/mo' },
-                    { id: 'noshow-recovery', label: 'No-Show Recovery',      price: '$397/mo' },
+                    { id: 'new-lead-alert',  label: 'New Lead Alert',         price: '$197/mo' },
                     { id: 'missed-call',     label: 'Missed Call Text-Back', price: '$297/mo' },
                   ] as { id: string; label: string; price: string }[]).map(opt => {
                     const sel = autoType === opt.id
@@ -360,10 +363,10 @@ export default function ROICalculator() {
                 <Slider label="Value Per New Review"     min={5}  max={200} value={rrReviewValue}    onChange={setRrReviewValue}    display={`$${rrReviewValue}`} />
               </>}
 
-              {autoType === 'noshow-recovery' && <>
-                <Slider label="Appointments / Week"   min={5}  max={200} value={nsAppts}      onChange={setNsAppts}      display={String(nsAppts)} />
-                <Slider label="No-Show Rate"          min={5}  max={50}  value={nsNoShowRate} onChange={setNsNoShowRate} display={`${nsNoShowRate}%`} />
-                <Slider label="Avg Appointment Value" min={50} max={500} step={5} value={nsApptValue} onChange={setNsApptValue} display={`$${nsApptValue}`} />
+              {autoType === 'new-lead-alert' && <>
+                <Slider label="Leads / Week"          min={1}  max={200}  value={nlaLeads}         onChange={setNlaLeads}         display={String(nlaLeads)} />
+                <Slider label="% of Leads Missed"     min={0}  max={100}  value={nlaMissedPct}     onChange={setNlaMissedPct}     display={`${nlaMissedPct}%`} />
+                <Slider label="Avg Customer Value"    min={50} max={5000} step={50} value={nlaCustomerValue} onChange={setNlaCustomerValue} display={`$${nlaCustomerValue.toLocaleString()}`} />
               </>}
 
               {autoType === 'missed-call' && <>
@@ -425,7 +428,13 @@ export default function ROICalculator() {
                 this year.
               </p>
               <a
-                href={activeTab === 'automation' ? 'https://strikepath.co/onboarding/automation' : '/services'}
+                href={
+                  activeTab === 'automation' && autoType === 'new-lead-alert'
+                    ? 'https://buy.stripe.com/cNi8wI9VS0VNasYdMvbsc0b'
+                    : activeTab === 'automation'
+                    ? 'https://strikepath.co/onboarding/automation'
+                    : '/services'
+                }
                 style={{
                   display: 'inline-block',
                   fontFamily: 'var(--font-mono)',
