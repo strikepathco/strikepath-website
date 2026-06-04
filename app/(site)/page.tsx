@@ -21,7 +21,7 @@ const services = [
     icon: "⚙️",
     name: "AI Automation",
     desc: "Connect your tools and eliminate manual work. Workflows that run themselves so your team stays focused on what matters.",
-    from: "$247",
+    from: "$197",
     href: "/services#automation",
   },
   {

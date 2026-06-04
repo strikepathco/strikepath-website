@@ -47,7 +47,7 @@ const CATEGORIES: Category[] = [
     successPath: '/onboarding/automation',
     tiers: [
       { name: 'Review Request System',        price: '$247/mo', note: 'After every completed job, your customer automatically gets a text asking for a Google review. More 5-star ratings on autopilot, no manual follow-up needed.',                                               priceKey: 'STRIPE_AUTOMATION_REVIEW_REQUEST',  checkoutUrl: 'https://buy.stripe.com/9B64gsec8dIz0So4bVbsc01' },
-      { name: 'Appointment No-Show Recovery', price: '$397/mo', note: 'Missed appointments trigger an instant reschedule offer sent directly to the client. Stop losing revenue to no-shows with a recovery system running around the clock.',                                      priceKey: 'STRIPE_AUTOMATION_NOSHOW_RECOVERY', checkoutUrl: 'https://buy.stripe.com/eVq14gec8awn7gMcIrbsc02' },
+      { name: 'New Lead Alert System',         price: '$197/mo', note: 'Every time someone fills out your contact form, you instantly get a text with their name, email, and message. Never miss a lead again.',                                                              priceKey: 'STRIPE_AUTOMATION_NEW_LEAD_ALERT',  checkoutUrl: 'PLACEHOLDER_STRIPE_LINK' },
       { name: 'Missed Call Text-Back',        price: '$297/mo', note: 'Every missed call instantly gets a personalized text so no lead goes cold. Turn missed opportunities into booked appointments without ever picking up the phone.',                                            priceKey: 'STRIPE_AUTOMATION_MISSED_CALL',     checkoutUrl: 'https://buy.stripe.com/dRm9AMd849sj0So9wfbsc03' },
     ],
   },
