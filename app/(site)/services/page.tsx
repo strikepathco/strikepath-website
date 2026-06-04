@@ -29,7 +29,7 @@ const CATEGORIES: Category[] = [
     successPath: '/onboarding/chatbot',
     tiers: [
       { name: 'Starter',  price: '$149/mo', note: 'A 24/7 AI chatbot trained on your business. Answers common customer questions instantly, captures lead info, and never misses a visitor — even at 2am.', priceKey: 'STRIPE_CHATBOT_STARTER', checkoutUrl: 'https://buy.stripe.com/7sYaEQgkgfQHeJebEnbsc09' },
-      { name: 'Pro',      price: '$249/mo', note: 'Everything in Starter plus direct integration with your CRM. Automatically logs every lead, triggers follow-up sequences, and handles complex multi-step conversations.', priceKey: 'STRIPE_CHATBOT_PRO', checkoutUrl: 'https://buy.stripe.com/7sYbIU8ROcEv58EaAjbsc08' },
+      { name: 'Pro',      price: '$249/mo', note: 'Everything in Starter plus automatically logs every lead to a live dashboard we set up for you. Track every name, email, and phone number your chatbot collects — all in one place.', priceKey: 'STRIPE_CHATBOT_PRO', checkoutUrl: 'https://buy.stripe.com/7sYbIU8ROcEv58EaAjbsc08' },
     ],
   },
   {
