@@ -383,7 +383,7 @@ export default function ROICalculator() {
               {/* Automation selector */}
               <div style={{ marginBottom: '1.75rem' }}>
                 <span style={{ ...monoXs, display: 'block', marginBottom: '0.65rem' }}>Plan</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem' }}>
                   {([
                     { id: 'review-request', label: 'Review Request — $247/mo' },
                     { id: 'new-lead-alert', label: 'New Lead Alert — $197/mo' },
@@ -408,7 +408,7 @@ export default function ROICalculator() {
                           color: active ? '#000' : 'var(--bone-dim)',
                           cursor: 'pointer',
                           transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
-                          width: '100%',
+                          whiteSpace: 'nowrap',
                         }}
                       >
                         {opt.label}
