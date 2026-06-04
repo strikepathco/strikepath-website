@@ -4,7 +4,7 @@ import ContactForm from '@/app/components/ContactForm'
 export const metadata: Metadata = {
   title: 'Contact | StrikePath',
   description:
-    'Get in touch with StrikePath. We respond within 24 hours with a clear path forward.',
+    'Get in touch with StrikePath. We respond within 48 hours with a clear path forward.',
 }
 
 export default function ContactPage() {

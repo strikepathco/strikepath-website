@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Thank You | StrikePath',
-  description: 'Your purchase is confirmed. Our team will reach out within 24 hours.',
+  description: 'Your purchase is confirmed. Our team will reach out within 48 hours.',
   robots: { index: false, follow: false },
 }
 
@@ -37,7 +37,7 @@ export default function ThankYouPage() {
             marginBottom: '2rem',
           }}
         >
-          Our team will reach out within 24 hours to get everything set up for you.
+          Our team will reach out within 48 hours to get everything set up for you.
         </p>
 
         <a

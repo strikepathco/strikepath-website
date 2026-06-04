@@ -42,7 +42,7 @@ export default function OnboardingPage({ eyebrow, heading, tallyId, formTitle }:
             marginBottom: '3rem',
           }}
         >
-          Payment confirmed. Fill out the form below and we'll reach out within 24 hours
+          Payment confirmed. Fill out the form below and we'll reach out within 48 hours
           to get everything set up — no waiting, no guesswork.
         </p>
 

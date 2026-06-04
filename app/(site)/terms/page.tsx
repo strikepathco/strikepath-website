@@ -80,7 +80,7 @@ export default function TermsPage() {
 
         <h2 style={sectionHeading}>Delivery</h2>
         <p style={body}>
-          StrikePath commits to delivering all services within 24 hours of receiving your completed onboarding form. Delivery timelines depend on you submitting accurate and complete onboarding information.
+          StrikePath commits to delivering all services within 48 hours of receiving your completed onboarding form. Delivery timelines depend on you submitting accurate and complete onboarding information.
         </p>
 
         <h2 style={sectionHeading}>Your Responsibilities</h2>

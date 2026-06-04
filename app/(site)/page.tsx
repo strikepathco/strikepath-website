@@ -52,15 +52,15 @@ const steps = [
   {
     num: "04",
     title: "You're live",
-    desc: "Your service is delivered within 24 hours. Ready to use from day one.",
+    desc: "Your service is delivered within 48 hours. Ready to use from day one.",
   },
 ];
 
 const whyItems = [
   {
-    stat: "24hr",
+    stat: "48hr",
     label: "Delivery guarantee",
-    desc: "Every service delivered within 24 hours of your onboarding form. Not days, not weeks.",
+    desc: "Every service delivered within 48 hours of your onboarding form. Not days, not weeks.",
   },
   {
     stat: "$0",
@@ -117,7 +117,7 @@ export default function Home() {
 
           <p className={styles.heroSub}>
             Done-for-you AI chatbots, automation, receptionists, and marketing
-            tools. Delivered in 24 hours.
+            tools. Delivered within 48 hours.
           </p>
 
           <div className={styles.heroCtas}>
@@ -132,7 +132,7 @@ export default function Home() {
           <div className={styles.trustRow}>
             <div className={styles.trustItem}>
               <span className={styles.trustDot} />
-              Delivered in 24 hours
+              Delivered within 48 hours
             </div>
             <div className={styles.trustDivider} />
             <div className={styles.trustItem}>
@@ -162,7 +162,7 @@ export default function Home() {
           </h2>
           <p className={styles.sectionSub}>
             Pick the service that fits. Each one is built, delivered, and
-            running in under 24 hours.
+            running within 48 hours.
           </p>
 
           <div className={styles.serviceGrid}>
@@ -199,7 +199,7 @@ export default function Home() {
       <section className={`${styles.section} ${styles.sectionAlt}`} id="process">
         <div className={styles.sectionInner}>
           <p className={styles.sectionLabel}>How it works</p>
-          <h2 className={styles.sectionTitle}>Live in 24 hours. Four steps.</h2>
+          <h2 className={styles.sectionTitle}>Live within 48 hours. Four steps.</h2>
 
           <div className={styles.stepsGrid}>
             {steps.map((s) => (
@@ -259,7 +259,7 @@ export default function Home() {
             Ready to stop doing work<br />AI can do for you?
           </h2>
           <p className={styles.ctaSub}>
-            Starting at $149/mo. No contracts. Delivered in 24 hours.
+            Starting at $149/mo. No contracts. Delivered within 48 hours.
           </p>
           <Link href="/services" className={styles.btnPrimary}>
             View All Services →

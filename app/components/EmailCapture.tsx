@@ -33,7 +33,7 @@ export default function EmailCapture() {
           color: 'var(--bone)',
         }}
       >
-        We'll be in touch within 24 hours.
+        We'll be in touch within 48 hours.
       </p>
     )
   }

@@ -70,7 +70,7 @@ export default function ContactForm() {
             marginTop: '1.25rem',
           }}
         >
-          We'll be in touch<br />within 24 hours.
+          We'll be in touch<br />within 48 hours.
         </p>
         <div className="hairline" style={{ margin: '2rem 0', maxWidth: '200px' }} />
         <p
