@@ -13,6 +13,7 @@ type Tier = {
   note: string
   priceKey: string
   checkoutUrl?: string
+  howItWorksPath?: string
 }
 
 type Category = {
@@ -28,8 +29,8 @@ const CATEGORIES: Category[] = [
     eyebrow: '01',
     successPath: '/onboarding/chatbot',
     tiers: [
-      { name: 'Starter',  price: '$149/mo', note: 'A 24/7 AI chatbot trained on your business. Answers common customer questions instantly, captures lead info, and never misses a visitor — even at 2am.', priceKey: 'STRIPE_CHATBOT_STARTER', checkoutUrl: 'https://buy.stripe.com/7sYaEQgkgfQHeJebEnbsc09' },
-      { name: 'Pro',      price: '$249/mo', note: 'Everything in Starter plus automatically logs every lead to a live dashboard we set up for you. Track every name, email, and phone number your chatbot collects — all in one place.', priceKey: 'STRIPE_CHATBOT_PRO', checkoutUrl: 'https://buy.stripe.com/7sYbIU8ROcEv58EaAjbsc08' },
+      { name: 'Starter',  price: '$149/mo', note: 'A 24/7 AI chatbot trained on your business. Answers common customer questions instantly, captures lead info, and never misses a visitor — even at 2am.', priceKey: 'STRIPE_CHATBOT_STARTER', checkoutUrl: 'https://buy.stripe.com/7sYaEQgkgfQHeJebEnbsc09', howItWorksPath: '/how-it-works/chatbot-starter' },
+      { name: 'Pro',      price: '$249/mo', note: 'Everything in Starter plus automatically logs every lead to a live dashboard we set up for you. Track every name, email, and phone number your chatbot collects — all in one place.', priceKey: 'STRIPE_CHATBOT_PRO', checkoutUrl: 'https://buy.stripe.com/7sYbIU8ROcEv58EaAjbsc08', howItWorksPath: '/how-it-works/chatbot-pro' },
     ],
   },
   {
@@ -46,9 +47,9 @@ const CATEGORIES: Category[] = [
     eyebrow: '03',
     successPath: '/onboarding/automation',
     tiers: [
-      { name: 'Review Request System',        price: '$247/mo', note: 'After every completed job, your customer automatically gets a text asking for a Google review. More 5-star ratings on autopilot, no manual follow-up needed.',                                               priceKey: 'STRIPE_AUTOMATION_REVIEW_REQUEST',  checkoutUrl: 'https://buy.stripe.com/9B64gsec8dIz0So4bVbsc01' },
-      { name: 'New Lead Alert System',         price: '$197/mo', note: 'Every time someone fills out your contact form, you instantly get a text with their name, email, and message. Never miss a lead again.',                                                              priceKey: 'STRIPE_AUTOMATION_NEW_LEAD_ALERT',  checkoutUrl: 'https://buy.stripe.com/cNi8wI9VS0VNasYdMvbsc0b' },
-      { name: 'Missed Call Text-Back',        price: '$297/mo', note: 'Every missed call instantly gets a personalized text so no lead goes cold. Turn missed opportunities into booked appointments without ever picking up the phone.',                                            priceKey: 'STRIPE_AUTOMATION_MISSED_CALL',     checkoutUrl: 'https://buy.stripe.com/dRm9AMd849sj0So9wfbsc03' },
+      { name: 'Review Request System',        price: '$247/mo', note: 'After every completed job, your customer automatically gets a text asking for a Google review. More 5-star ratings on autopilot, no manual follow-up needed.',                                               priceKey: 'STRIPE_AUTOMATION_REVIEW_REQUEST',  checkoutUrl: 'https://buy.stripe.com/9B64gsec8dIz0So4bVbsc01', howItWorksPath: '/how-it-works/review-request' },
+      { name: 'New Lead Alert System',         price: '$197/mo', note: 'Every time someone fills out your contact form, you instantly get a text with their name, email, and message. Never miss a lead again.',                                                              priceKey: 'STRIPE_AUTOMATION_NEW_LEAD_ALERT',  checkoutUrl: 'https://buy.stripe.com/cNi8wI9VS0VNasYdMvbsc0b', howItWorksPath: '/how-it-works/new-lead-alert' },
+      { name: 'Missed Call Text-Back',        price: '$297/mo', note: 'Every missed call instantly gets a personalized text so no lead goes cold. Turn missed opportunities into booked appointments without ever picking up the phone.',                                            priceKey: 'STRIPE_AUTOMATION_MISSED_CALL',     checkoutUrl: 'https://buy.stripe.com/dRm9AMd849sj0So9wfbsc03', howItWorksPath: '/how-it-works/missed-call' },
     ],
   },
   {
@@ -56,8 +57,8 @@ const CATEGORIES: Category[] = [
     eyebrow: '04',
     successPath: '/onboarding/marketing',
     tiers: [
-      { name: 'Ad Batch',          price: '$197/mo', note: '5–10 AI-generated ads delivered every month, ready to run on any platform. Scroll-stopping visuals and copy built around your brand and target audience.', priceKey: 'STRIPE_MARKETING_ADBATCH',  checkoutUrl: 'https://buy.stripe.com/9B6cMY8RO33V0SogYHbsc06' },
-      { name: 'Marketing Premium', price: '$497/mo', note: '10–15 static ads + short-form video ads + carousel posts monthly. Built from your brand photos. Full content suite ready to post across Instagram, TikTok, and Facebook.', priceKey: 'STRIPE_MARKETING_PREMIUM', checkoutUrl: 'https://buy.stripe.com/14A9AM6JG6g7dFa8sbbsc04' },
+      { name: 'Ad Batch',          price: '$197/mo', note: '5–10 AI-generated ads delivered every month, ready to run on any platform. Scroll-stopping visuals and copy built around your brand and target audience.', priceKey: 'STRIPE_MARKETING_ADBATCH',  checkoutUrl: 'https://buy.stripe.com/9B6cMY8RO33V0SogYHbsc06', howItWorksPath: '/how-it-works/marketing-basic' },
+      { name: 'Marketing Premium', price: '$497/mo', note: '10–15 static ads + short-form video ads + carousel posts monthly. Built from your brand photos. Full content suite ready to post across Instagram, TikTok, and Facebook.', priceKey: 'STRIPE_MARKETING_PREMIUM', checkoutUrl: 'https://buy.stripe.com/14A9AM6JG6g7dFa8sbbsc04', howItWorksPath: '/how-it-works/marketing-premium' },
     ],
   },
 ]
@@ -202,6 +203,31 @@ export default function ServicesPage() {
                           lineHeight: 1,
                         }}>Launch Special</span>
                       </p>
+
+                      {tier.howItWorksPath && (
+                        <a
+                          href={tier.howItWorksPath}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '9px',
+                            fontWeight: 400,
+                            letterSpacing: '0.12em',
+                            textTransform: 'uppercase',
+                            color: 'var(--gold)',
+                            border: '1px solid var(--gold)',
+                            borderRadius: '3px',
+                            padding: '2px 6px',
+                            whiteSpace: 'nowrap',
+                            lineHeight: 1,
+                            textDecoration: 'none',
+                            display: 'inline-block',
+                          }}
+                        >
+                          How It Works →
+                        </a>
+                      )}
 
                       {/* Note */}
                       <p
