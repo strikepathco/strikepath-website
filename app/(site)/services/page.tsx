@@ -223,6 +223,7 @@ export default function ServicesPage() {
                             lineHeight: 1,
                             textDecoration: 'none',
                             display: 'inline-block',
+                            alignSelf: 'flex-start',
                           }}
                         >
                           How It Works →
