@@ -301,10 +301,41 @@ export default function ROICalculator() {
               <Slider label="Customer inquiries / week" min={1}  max={200} value={cbInquiries} onChange={setCbInquiries} display={String(cbInquiries)} />
               <Slider label="Avg. time per inquiry"     min={2}  max={30}  value={cbMinutes}   onChange={setCbMinutes}   display={`${cbMinutes} min`} />
               <Slider label="Your hourly rate"          min={25} max={500} step={5} value={cbRate} onChange={setCbRate} display={`$${cbRate}/hr`} />
-              <PlanSelect value={cbPlan} onChange={setCbPlan} options={[
-                { value: '1788', label: 'Starter — $149/mo ($1,788/yr)' },
-                { value: '2988', label: 'Pro — $249/mo ($2,988/yr)' },
-              ]} />
+              <div>
+                <span style={{ ...monoXs, display: 'block', marginBottom: '0.65rem' }}>Plan</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  {([
+                    { value: '1788', label: 'Starter — $149/mo' },
+                    { value: '2988', label: 'Pro — $249/mo' },
+                  ] as { value: string; label: string }[]).map(opt => {
+                    const active = cbPlan === opt.value
+                    return (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setCbPlan(opt.value)}
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.58rem',
+                          fontWeight: active ? 400 : 300,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          padding: '0.5rem 1.1rem',
+                          borderRadius: '9999px',
+                          border: `1px solid ${active ? 'var(--gold)' : 'var(--line-strong)'}`,
+                          background: active ? 'var(--gold)' : 'transparent',
+                          color: active ? '#000' : 'var(--bone-dim)',
+                          cursor: 'pointer',
+                          transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {opt.label}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
             </>}
 
             {activeTab === 'receptionist' && <>
@@ -351,14 +382,14 @@ export default function ROICalculator() {
             {activeTab === 'automation' && <>
               {/* Automation selector */}
               <div style={{ marginBottom: '1.75rem' }}>
-                <span style={{ ...monoXs, display: 'block', marginBottom: '0.75rem' }}>Which Automation?</span>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <span style={{ ...monoXs, display: 'block', marginBottom: '0.65rem' }}>Plan</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                   {([
-                    { id: 'review-request',  label: 'Review Request',        price: '$247/mo' },
-                    { id: 'new-lead-alert',  label: 'New Lead Alert',         price: '$197/mo' },
-                    { id: 'missed-call',     label: 'Missed Call Text-Back', price: '$297/mo' },
-                  ] as { id: string; label: string; price: string }[]).map(opt => {
-                    const sel = autoType === opt.id
+                    { id: 'review-request', label: 'Review Request — $247/mo' },
+                    { id: 'new-lead-alert', label: 'New Lead Alert — $197/mo' },
+                    { id: 'missed-call',    label: 'Missed Call Text-Back — $297/mo' },
+                  ] as { id: string; label: string }[]).map(opt => {
+                    const active = autoType === opt.id
                     return (
                       <button
                         key={opt.id}
@@ -366,22 +397,21 @@ export default function ROICalculator() {
                         onClick={() => setAutoType(opt.id)}
                         style={{
                           fontFamily: 'var(--font-mono)',
-                          fontSize: '0.57rem',
-                          fontWeight: sel ? 400 : 300,
-                          letterSpacing: '0.14em',
+                          fontSize: '0.58rem',
+                          fontWeight: active ? 400 : 300,
+                          letterSpacing: '0.18em',
                           textTransform: 'uppercase',
-                          padding: '0.5rem 0.85rem',
-                          border: `1px solid ${sel ? 'var(--gold)' : 'var(--line-strong)'}`,
-                          background: sel ? 'rgba(232,160,76,0.10)' : 'transparent',
-                          color: sel ? 'var(--gold)' : 'var(--bone-dim)',
+                          padding: '0.5rem 1.1rem',
+                          borderRadius: '9999px',
+                          border: `1px solid ${active ? 'var(--gold)' : 'var(--line-strong)'}`,
+                          background: active ? 'var(--gold)' : 'transparent',
+                          color: active ? '#000' : 'var(--bone-dim)',
                           cursor: 'pointer',
-                          display: 'flex',
-                          justifyContent: 'space-between',
                           transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+                          whiteSpace: 'nowrap',
                         }}
                       >
-                        <span>{opt.label}</span>
-                        <span style={{ opacity: 0.65 }}>{opt.price}</span>
+                        {opt.label}
                       </button>
                     )
                   })}
@@ -411,10 +441,41 @@ export default function ROICalculator() {
               <Slider label="Hours / week on marketing"         min={1}  max={20}   value={mktHours} onChange={setMktHours} display={`${mktHours} hrs`} />
               <Slider label="Your hourly rate"                  min={25} max={500}  step={5} value={mktRate} onChange={setMktRate} display={`$${mktRate}/hr`} />
               <Slider label="Monthly freelancer / agency spend" min={0}  max={5000} step={50} value={mktSpend} onChange={setMktSpend} display={`$${mktSpend.toLocaleString()}/mo`} />
-              <PlanSelect value={mktPlan} onChange={setMktPlan} options={[
-                { value: '2364', label: 'Ad Batch — $197/mo ($2,364/yr)' },
-                { value: '5964', label: 'Marketing Premium — $497/mo ($5,964/yr)' },
-              ]} />
+              <div>
+                <span style={{ ...monoXs, display: 'block', marginBottom: '0.65rem' }}>Plan</span>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  {([
+                    { value: '2364', label: 'Ad Batch — $197/mo' },
+                    { value: '5964', label: 'Premium — $497/mo' },
+                  ] as { value: string; label: string }[]).map(opt => {
+                    const active = mktPlan === opt.value
+                    return (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setMktPlan(opt.value)}
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.58rem',
+                          fontWeight: active ? 400 : 300,
+                          letterSpacing: '0.18em',
+                          textTransform: 'uppercase',
+                          padding: '0.5rem 1.1rem',
+                          borderRadius: '9999px',
+                          border: `1px solid ${active ? 'var(--gold)' : 'var(--line-strong)'}`,
+                          background: active ? 'var(--gold)' : 'transparent',
+                          color: active ? '#000' : 'var(--bone-dim)',
+                          cursor: 'pointer',
+                          transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {opt.label}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
             </>}
           </div>
 
