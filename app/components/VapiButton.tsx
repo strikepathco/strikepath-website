@@ -2,68 +2,51 @@
 import { useState, useRef, useEffect } from 'react'
 import Vapi from '@vapi-ai/web'
 
-type CallState = 'idle' | 'connecting' | 'active'
+type Status = 'idle' | 'connecting' | 'active'
 
 export default function VapiButton() {
-  const [state, setState] = useState<CallState>('idle')
-  const [micError, setMicError] = useState(false)
-  const vapiRef = useRef<Vapi | null>(null)
+  const statusRef = useRef<Status>('idle')
+  const vapiRef   = useRef<InstanceType<typeof Vapi> | null>(null)
+  const [display, setDisplay] = useState<Status>('idle')
+
+  function setStatus(s: Status) {
+    statusRef.current = s
+    setDisplay(s)
+  }
 
   useEffect(() => {
-    return () => {
-      vapiRef.current?.stop()
-    }
+    return () => { vapiRef.current?.stop() }
   }, [])
 
-  async function startCall() {
-    setMicError(false)
-    setState('connecting')
-    try {
-      const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_KEY!)
-      vapiRef.current = vapi
-
-      await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!)
-
-      vapi.on('call-start', () => setState('active'))
-      vapi.on('call-end', () => {
-        setState('idle')
-        vapiRef.current = null
-      })
-      vapi.on('error', (err) => {
-        const msg = String((err as { message?: string })?.message ?? err ?? '')
-        if (msg.toLowerCase().includes('permission') || msg.toLowerCase().includes('notallowed')) {
-          setMicError(true)
-        }
-        setState('idle')
-        vapiRef.current = null
-      })
-    } catch (err: unknown) {
-      const name = (err as { name?: string })?.name ?? ''
-      const msg  = (err as { message?: string })?.message ?? ''
-      if (name === 'NotAllowedError' || msg.toLowerCase().includes('permission')) {
-        setMicError(true)
-      }
-      setState('idle')
-      vapiRef.current = null
+  function handleClick() {
+    if (statusRef.current === 'connecting') return
+    if (statusRef.current === 'active') {
+      vapiRef.current?.stop()
+      return
     }
+
+    // idle — start call
+    const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_KEY!)
+    vapiRef.current = vapi
+
+    vapi.on('call-start', () => setStatus('active'))
+    vapi.on('call-end',   () => { setStatus('idle'); vapiRef.current = null })
+    vapi.on('error',      (e) => { console.error('Vapi error:', e); setStatus('idle'); vapiRef.current = null })
+
+    vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!)
+    setStatus('connecting')
   }
 
-  function endCall() {
-    vapiRef.current?.stop()
-    setState('idle')
-    vapiRef.current = null
-  }
-
-  const isIdle       = state === 'idle'
-  const isConnecting = state === 'connecting'
-  const isActive     = state === 'active'
+  const isIdle       = display === 'idle'
+  const isConnecting = display === 'connecting'
+  const isActive     = display === 'active'
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <style>{`
-        @keyframes vapi-button-pulse {
-          0%, 100% { opacity: 1; }
-          50%       { opacity: 0.35; }
+        @keyframes vapi-connecting {
+          0%, 100% { opacity: 0.6; }
+          50%       { opacity: 0.25; }
         }
         @keyframes vapi-dot-pulse {
           0%, 100% { opacity: 1; }
@@ -72,8 +55,7 @@ export default function VapiButton() {
       `}</style>
 
       <button
-        onClick={isActive ? endCall : isIdle ? startCall : undefined}
-        disabled={isConnecting}
+        onClick={handleClick}
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: '0.72rem',
@@ -81,40 +63,27 @@ export default function VapiButton() {
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
           padding: '0.75rem 2rem',
-          border: `1px solid ${isActive ? '#e05c1a' : 'var(--gold)'}`,
-          background: isActive ? 'rgba(224,92,26,0.08)' : 'transparent',
-          color: isActive ? '#e05c1a' : 'var(--gold)',
-          cursor: isConnecting ? 'default' : 'pointer',
+          border: `1px solid ${isActive ? '#ef4444' : 'var(--gold)'}`,
+          background: 'transparent',
+          color: isActive ? '#ef4444' : 'var(--gold)',
+          cursor: isConnecting ? 'not-allowed' : 'pointer',
+          pointerEvents: isConnecting ? 'none' : 'auto',
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.5rem',
-          animation: isConnecting ? 'vapi-button-pulse 1.2s ease-in-out infinite' : 'none',
-          transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+          animation: isConnecting ? 'vapi-connecting 1.2s ease-in-out infinite' : 'none',
+          transition: 'border-color 0.2s ease, color 0.2s ease',
         }}
       >
         {isIdle       && 'Try Our AI Receptionist Live →'}
         {isConnecting && 'Connecting...'}
         {isActive     && (
           <>
-            <span style={{ animation: 'vapi-dot-pulse 1.5s ease-in-out infinite', fontSize: '0.6rem' }}>●</span>
-            {"You're Live — Click to Hang Up"}
+            <span style={{ animation: 'vapi-dot-pulse 1.5s ease-in-out infinite' }}>●</span>
+            {" You're Live — Click to Hang Up"}
           </>
         )}
       </button>
-
-      {micError && (
-        <p style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.58rem',
-          fontWeight: 300,
-          letterSpacing: '0.12em',
-          color: '#e05c1a',
-          marginTop: '0.6rem',
-          textAlign: 'center',
-        }}>
-          Microphone access is required to try this.
-        </p>
-      )}
     </div>
   )
 }
