@@ -22,6 +22,8 @@ export default function VapiButton() {
       const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_KEY!)
       vapiRef.current = vapi
 
+      await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!)
+
       vapi.on('call-start', () => setState('active'))
       vapi.on('call-end', () => {
         setState('idle')
@@ -35,8 +37,6 @@ export default function VapiButton() {
         setState('idle')
         vapiRef.current = null
       })
-
-      await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!)
     } catch (err: unknown) {
       const name = (err as { name?: string })?.name ?? ''
       const msg  = (err as { message?: string })?.message ?? ''
@@ -61,13 +61,13 @@ export default function VapiButton() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <style>{`
-        @keyframes vapi-pulse {
+        @keyframes vapi-button-pulse {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.35; }
         }
         @keyframes vapi-dot-pulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50%       { transform: scale(1.4); opacity: 0.6; }
+          0%, 100% { opacity: 1; }
+          50%       { opacity: 0.3; }
         }
       `}</style>
 
@@ -87,24 +87,19 @@ export default function VapiButton() {
           cursor: isConnecting ? 'default' : 'pointer',
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '0.6rem',
-          animation: isConnecting ? 'vapi-pulse 1.2s ease-in-out infinite' : 'none',
+          gap: '0.5rem',
+          animation: isConnecting ? 'vapi-button-pulse 1.2s ease-in-out infinite' : 'none',
           transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
         }}
       >
-        {isActive && (
-          <span style={{
-            width: '6px',
-            height: '6px',
-            borderRadius: '50%',
-            background: '#e05c1a',
-            flexShrink: 0,
-            animation: 'vapi-dot-pulse 1s ease-in-out infinite',
-          }} />
-        )}
         {isIdle       && 'Try Our AI Receptionist Live →'}
         {isConnecting && 'Connecting...'}
-        {isActive     && 'Live — End Call'}
+        {isActive     && (
+          <>
+            <span style={{ animation: 'vapi-dot-pulse 1.5s ease-in-out infinite', fontSize: '0.6rem' }}>●</span>
+            {"You're Live — Click to Hang Up"}
+          </>
+        )}
       </button>
 
       {micError && (
