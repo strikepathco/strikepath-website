@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import CheckoutButton from '@/app/components/CheckoutButton'
-import VapiButton from '@/app/components/VapiButton'
 
 export const metadata: Metadata = {
   title: 'Services | StrikePath',
@@ -253,24 +252,6 @@ export default function ServicesPage() {
                   )
                 })}
               </div>
-
-              {cat.label === 'AI Receptionist' && (
-                <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.55rem',
-                      fontWeight: 300,
-                      letterSpacing: '0.28em',
-                      textTransform: 'uppercase',
-                      color: 'var(--gold)',
-                    }}
-                  >
-                    Hear It For Yourself
-                  </span>
-                  <VapiButton />
-                </div>
-              )}
             </div>
           )
         })}
