@@ -45,7 +45,7 @@ export default function DisclaimerPage() {
         >
           Disclaimer
         </h1>
-        <p style={monoSm}>Last Updated: May 26, 2026</p>
+        <p style={monoSm}>Last Updated: June 4, 2026</p>
 
         <div className="hairline" style={{ margin: '2rem 0' }} />
 
@@ -56,7 +56,7 @@ export default function DisclaimerPage() {
 
         <h2 style={sectionHeading}>AI Service Disclaimer</h2>
         <p style={body}>
-          StrikePath's AI-powered services — including chatbots, AI receptionists, and automation workflows — are built on third-party AI platforms. While we configure and deliver these tools, we cannot guarantee:
+          StrikePath's AI-powered services — including chatbots, AI receptionists, automation workflows, and AI marketing — are built on third-party AI platforms. While we configure and deliver these tools, we cannot guarantee:
         </p>
         <ul style={{ ...body, paddingLeft: '1.25rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
           <li>That AI responses will always be accurate, complete, or appropriate</li>
@@ -74,7 +74,7 @@ export default function DisclaimerPage() {
 
         <h2 style={sectionHeading}>Third-Party Platforms</h2>
         <p style={body}>
-          Our services are built on platforms including Anthropic, Vapi, Make.com, and Manus AI. StrikePath is not responsible for outages, changes, or failures of these third-party platforms.
+          Our services are built on platforms including Anthropic, Chatbase, Vapi, Make.com, Twilio, and Pletor. StrikePath is not responsible for outages, changes, or failures of these third-party platforms.
         </p>
 
         <h2 style={sectionHeading}>Contact</h2>

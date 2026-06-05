@@ -26,6 +26,17 @@ const sectionHeading: React.CSSProperties = {
   marginTop: '2.5rem',
 }
 
+const subHeading: React.CSSProperties = {
+  fontFamily: 'var(--font-mono)',
+  fontSize: '0.62rem',
+  fontWeight: 400,
+  letterSpacing: '0.18em',
+  textTransform: 'uppercase',
+  color: 'var(--bone)',
+  marginBottom: '0.4rem',
+  marginTop: '1.25rem',
+}
+
 const body: React.CSSProperties = {
   fontFamily: 'var(--font-sans)',
   fontWeight: 300,
@@ -45,7 +56,7 @@ export default function PrivacyPage() {
         >
           Privacy Policy
         </h1>
-        <p style={monoSm}>Effective Date: May 26, 2026 &nbsp;·&nbsp; Last Updated: May 26, 2026</p>
+        <p style={monoSm}>Effective Date: May 26, 2026 &nbsp;·&nbsp; Last Updated: June 4, 2026</p>
 
         <div className="hairline" style={{ margin: '2rem 0' }} />
 
@@ -56,18 +67,18 @@ export default function PrivacyPage() {
         <h2 style={sectionHeading}>Information We Collect</h2>
         <p style={body}>We collect information you provide directly to us, including:</p>
         <ul style={{ ...body, paddingLeft: '1.25rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <li>Name and email address when you contact us or submit a form</li>
+          <li>Name, email address, and phone number when you contact us or submit a form</li>
           <li>Business information you share during onboarding</li>
           <li>Payment information processed securely through Stripe (we never store your card details)</li>
         </ul>
         <p style={{ ...body, marginTop: '0.75rem' }}>
-          We also automatically collect basic usage data including your IP address, browser type, and pages visited through standard web analytics.
+          We also automatically collect basic usage data including IP address, browser type, pages visited, and device type through our first-party analytics system.
         </p>
 
         <h2 style={sectionHeading}>How We Use Your Information</h2>
         <p style={body}>We use your information to:</p>
         <ul style={{ ...body, paddingLeft: '1.25rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-          <li>Deliver the services you purchased</li>
+          <li>Deliver the services you purchased (AI Chatbot, AI Receptionist, AI Automation, AI Marketing)</li>
           <li>Send onboarding forms and service updates</li>
           <li>Respond to your questions and support requests</li>
           <li>Improve our website and services</li>
@@ -76,16 +87,35 @@ export default function PrivacyPage() {
 
         <h2 style={sectionHeading}>Data Storage</h2>
         <p style={body}>
-          Contact form submissions and lead information are stored in Google Sheets accessible only to StrikePath. We do not operate a customer database beyond this.
+          Contact form submissions and lead information are stored in a private Google Sheet accessible only to StrikePath. We do not operate an external customer database beyond this.
         </p>
 
         <h2 style={sectionHeading}>Third-Party Services</h2>
         <p style={body}>We use the following third-party services that may process your data:</p>
-        <ul style={{ ...body, paddingLeft: '1.25rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+
+        <p style={subHeading}>Website &amp; Infrastructure</p>
+        <ul style={{ ...body, paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
           <li>Stripe (payment processing) — stripe.com/privacy</li>
           <li>Vercel (website hosting) — vercel.com/legal/privacy-policy</li>
-          <li>Anthropic (AI chatbot) — anthropic.com/privacy</li>
+        </ul>
+
+        <p style={subHeading}>Communications</p>
+        <ul style={{ ...body, paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
           <li>Tally (onboarding forms) — tally.so/privacy</li>
+          <li>Zoho Mail (email) — zoho.com/privacy</li>
+        </ul>
+
+        <p style={subHeading}>Service Delivery</p>
+        <p style={{ ...body, marginBottom: '0.5rem' }}>
+          Depending on which service you purchase, your business information may be processed by one or more of the following:
+        </p>
+        <ul style={{ ...body, paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+          <li>Anthropic (AI services) — anthropic.com/privacy</li>
+          <li>Chatbase (AI chatbot) — chatbase.co/privacy</li>
+          <li>Vapi (AI receptionist) — vapi.ai/privacy</li>
+          <li>Make.com (automation workflows) — make.com/en/privacy</li>
+          <li>Twilio (SMS and phone automation) — twilio.com/en-us/legal/privacy</li>
+          <li>Pletor (AI marketing) — pletor.ai</li>
         </ul>
 
         <h2 style={sectionHeading}>Cookies</h2>
