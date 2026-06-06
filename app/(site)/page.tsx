@@ -203,6 +203,15 @@ export default function Home() {
                     lineHeight: 1,
                   }}>Launch Special</span>
                 </div>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.58rem',
+                  fontWeight: 300,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'var(--gold)',
+                  paddingTop: '0.25rem',
+                }}>Learn more →</span>
               </Link>
             ))}
           </div>
@@ -263,6 +272,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p style={{ marginTop: '2rem' }}>
+            <Link href="/ai-agency-phoenix-arizona" style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.58rem',
+              fontWeight: 300,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--gold)',
+              textDecoration: 'none',
+            }}>Serving Phoenix &amp; Arizona →</Link>
+          </p>
         </div>
       </section>
 
