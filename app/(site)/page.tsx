@@ -1,6 +1,12 @@
+import type { Metadata } from 'next'
 import Link from "next/link";
 import styles from "./page.module.css";
 import ROICalculator from "@/app/components/ROICalculator";
+
+export const metadata: Metadata = {
+  title: 'Strikepath | AI Chatbots, Receptionists & Automation',
+  description: 'Strikepath builds AI chatbots, AI receptionists, automations, and marketing for small businesses so owners save time and capture more leads.',
+}
 
 const services = [
   {
