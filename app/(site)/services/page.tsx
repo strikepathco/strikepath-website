@@ -1,10 +1,24 @@
 import type { Metadata } from 'next'
 import CheckoutButton from '@/app/components/CheckoutButton'
 
+const LANDING_PAGES: Record<string, string> = {
+  'AI Chatbots':     '/ai-chatbot-for-small-business',
+  'AI Receptionist': '/ai-receptionist-for-small-business',
+  'AI Automation':   '/ai-automation-for-small-business',
+  'AI Marketing':    '/ai-marketing-for-small-business',
+}
+
 export const metadata: Metadata = {
-  title: 'Services | StrikePath',
-  description:
-    'AI chatbots, receptionists, automation, and marketing — straightforward monthly plans, no setup fees, no long-term contracts.',
+  title: 'AI Chatbot, Receptionist & Automation Plans | StrikePath',
+  description: 'AI chatbots, receptionists, automation & marketing on simple monthly plans. No setup fees, no contracts. Delivered within 48 hours, starting at $149/mo.',
+  openGraph: {
+    title: 'AI Chatbot, Receptionist & Automation Plans | StrikePath',
+    description: 'AI chatbots, receptionists, automation & marketing on simple monthly plans. No setup fees, no contracts. Delivered within 48 hours, starting at $149/mo.',
+  },
+  twitter: {
+    title: 'AI Chatbot, Receptionist & Automation Plans | StrikePath',
+    description: 'AI chatbots, receptionists, automation & marketing on simple monthly plans. No setup fees, no contracts. Delivered within 48 hours, starting at $149/mo.',
+  },
 }
 
 type Tier = {
@@ -103,31 +117,52 @@ export default function ServicesPage() {
             <div key={cat.label}>
 
               {/* Category header */}
-              <div style={{ marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid var(--line)' }}>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6rem',
-                    fontWeight: 300,
-                    letterSpacing: '0.22em',
-                    textTransform: 'uppercase',
-                    color: 'var(--gold)',
-                    marginRight: '1rem',
-                  }}
-                >
-                  {cat.eyebrow}
-                </span>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 300,
-                    fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
-                    letterSpacing: '-0.015em',
-                    color: 'var(--bone)',
-                  }}
-                >
-                  {cat.label}
-                </span>
+              <div style={{ marginBottom: '2rem', paddingBottom: '1rem', borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.6rem',
+                      fontWeight: 300,
+                      letterSpacing: '0.22em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold)',
+                      marginRight: '1rem',
+                    }}
+                  >
+                    {cat.eyebrow}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontWeight: 300,
+                      fontSize: 'clamp(1.2rem, 2vw, 1.5rem)',
+                      letterSpacing: '-0.015em',
+                      color: 'var(--bone)',
+                    }}
+                  >
+                    {cat.label}
+                  </span>
+                </div>
+                {LANDING_PAGES[cat.label] && (
+                  <a
+                    href={LANDING_PAGES[cat.label]}
+                    className="svc-learn-more"
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.55rem',
+                      fontWeight: 300,
+                      letterSpacing: '0.18em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold)',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap',
+                      transition: 'color 0.25s ease',
+                    }}
+                  >
+                    Learn more →
+                  </a>
+                )}
               </div>
 
               {/* Tier cards */}
@@ -255,6 +290,35 @@ export default function ServicesPage() {
             </div>
           )
         })}
+      </div>
+
+      {/* ── FAQ ── */}
+      <div style={{ marginTop: '6rem', paddingTop: '4rem', borderTop: '1px solid var(--line)' }}>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', fontWeight: 300, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--gold)', display: 'block', marginBottom: '1rem' }}>Common Questions</span>
+        <h2 className="font-display font-light text-bone" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '2.5rem' }}>Frequently Asked Questions</h2>
+        <div style={{ maxWidth: '48rem' }}>
+          {([
+            { q: 'What\'s included with every plan?', a: 'Every plan includes direct access to our team, a 48-hour delivery guarantee, and no setup fees. You pay one flat monthly rate and we handle everything.' },
+            { q: 'Can I switch plans or cancel anytime?', a: 'Yes — all plans are month-to-month. You can cancel anytime, no questions asked, and there are no cancellation fees or long-term commitments.' },
+            { q: 'Do I need any technical knowledge to get started?', a: 'None at all. After checkout you fill out a simple 5-minute onboarding form. We take it from there and deliver your service fully set up and ready to use.' },
+            { q: 'How do I get started?', a: 'Pick the plan that fits your business, click the Get Started button, and complete checkout. You\'ll be redirected to a short onboarding form — that\'s everything we need to build your service.' },
+          ] as { q: string; a: string }[]).map(({ q, a }) => (
+            <div key={q} style={{ borderBottom: '1px solid var(--line)', padding: '1.5rem 0' }}>
+              <p style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)', color: 'var(--bone)', marginBottom: '0.5rem', letterSpacing: '-0.01em' }}>{q}</p>
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '0.9375rem', lineHeight: 1.75, color: 'rgba(236,227,204,0.65)' }}>{a}</p>
+            </div>
+          ))}
+        </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            { '@type': 'Question', name: 'What\'s included with every plan?', acceptedAnswer: { '@type': 'Answer', text: 'Every plan includes direct access to our team, a 48-hour delivery guarantee, and no setup fees. You pay one flat monthly rate and we handle everything.' } },
+            { '@type': 'Question', name: 'Can I switch plans or cancel anytime?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — all plans are month-to-month. You can cancel anytime, no questions asked, and there are no cancellation fees or long-term commitments.' } },
+            { '@type': 'Question', name: 'Do I need any technical knowledge to get started?', acceptedAnswer: { '@type': 'Answer', text: 'None at all. After checkout you fill out a simple 5-minute onboarding form. We take it from there and deliver your service fully set up and ready to use.' } },
+            { '@type': 'Question', name: 'How do I get started?', acceptedAnswer: { '@type': 'Answer', text: 'Pick the plan that fits your business, click the Get Started button, and complete checkout. You\'ll be redirected to a short onboarding form — that\'s everything we need to build your service.' } },
+          ],
+        }) }} />
       </div>
 
     </main>

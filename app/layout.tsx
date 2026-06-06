@@ -78,6 +78,26 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'StrikePath',
+          url: 'https://www.strikepath.co',
+          logo: 'https://www.strikepath.co/strikepath-logo.png',
+          telephone: '+1-928-356-0570',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Phoenix',
+            addressRegion: 'AZ',
+            addressCountry: 'US',
+          },
+          sameAs: [
+            'https://www.facebook.com/profile.php?id=61590551584911',
+            'https://www.linkedin.com/in/zander-geist-b0572b410/',
+            'https://x.com/StrikePathco',
+            'https://www.instagram.com/strikepathai/',
+          ],
+        }) }} />
       </head>
       <body>
         {children}
