@@ -89,44 +89,37 @@ export default function Footer() {
         </span>
       </a>
 
-      {/* Copyright */}
-      <p
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.62rem',
-          fontWeight: 300,
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-          color: 'var(--bone-dim)',
-        }}
-      >
-        © {year} StrikePath
-      </p>
-
-      {/* About */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {[
-          { label: 'About', href: '/about' },
-        ].map(({ label, href }) => (
-          <a
-            key={href}
-            href={href}
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.55rem',
-              fontWeight: 300,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'var(--bone-dim)',
-              textDecoration: 'none',
-              transition: 'color 0.25s ease',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)' }}
-            onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone-dim)' }}
-          >
-            {label}
-          </a>
-        ))}
+      {/* Copyright + About */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+        <p
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.62rem',
+            fontWeight: 300,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--bone-dim)',
+          }}
+        >
+          © {year} StrikePath
+        </p>
+        <a
+          href="/about"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.55rem',
+            fontWeight: 300,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--bone-dim)',
+            textDecoration: 'none',
+            transition: 'color 0.25s ease',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone-dim)' }}
+        >
+          About
+        </a>
       </div>
 
       {/* Legal links */}
