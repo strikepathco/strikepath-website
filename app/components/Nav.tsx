@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react'
 
 const LINKS = [
-  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'About',    href: '/about' },
 ]
 
 export default function Nav() {
