@@ -53,15 +53,15 @@ export default function Footer() {
       className="px-8 sm:px-14 lg:px-28"
       style={{
         paddingTop: '0',
-        paddingBottom: '3.5rem',
+        paddingBottom: '2.5rem',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        gap: '1.25rem',
+        gap: '0.9rem',
       }}
     >
-      <div className="hairline" style={{ width: '100%', marginBottom: '1.75rem' }} />
+      <div className="hairline" style={{ width: '100%', marginBottom: '1.25rem' }} />
 
       {/* Logo + wordmark */}
       <a
@@ -136,33 +136,35 @@ export default function Footer() {
       <p
         style={{
           fontFamily: 'var(--font-mono)',
-          fontSize: '0.55rem',
-          fontWeight: 300,
-          letterSpacing: '0.22em',
-          textTransform: 'uppercase',
-          color: 'var(--bone-dim)',
-          marginBottom: '-0.5rem',
-        }}
-      >
-        Customer Service
-      </p>
-      <a
-        href="tel:+19283560570"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.62rem',
+          fontSize: '0.6rem',
           fontWeight: 300,
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
-          color: 'var(--gold)',
-          textDecoration: 'none',
-          transition: 'color 0.25s ease',
+          color: 'var(--bone-dim)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.4rem',
         }}
-        onMouseEnter={e => { e.currentTarget.style.color = 'var(--bone)' }}
-        onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)' }}
       >
-        +1 (928) 356-0570
-      </a>
+        Customer Service:
+        <a
+          href="tel:+19283560570"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.62rem',
+            fontWeight: 300,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--gold)',
+            textDecoration: 'none',
+            transition: 'color 0.25s ease',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.color = 'var(--bone)' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'var(--gold)' }}
+        >
+          +1 (928) 356-0570
+        </a>
+      </p>
 
       {/* Social icons */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
