@@ -53,15 +53,15 @@ export default function Footer() {
       className="px-8 sm:px-14 lg:px-28"
       style={{
         paddingTop: '0',
-        paddingBottom: '2.5rem',
+        paddingBottom: '1.75rem',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
-        gap: '0.9rem',
+        gap: '0.65rem',
       }}
     >
-      <div className="hairline" style={{ width: '100%', marginBottom: '1.25rem' }} />
+      <div className="hairline" style={{ width: '100%', marginBottom: '0.9rem' }} />
 
       {/* Logo + wordmark */}
       <a
@@ -100,7 +100,7 @@ export default function Footer() {
           color: 'var(--bone-dim)',
         }}
       >
-        © {year} StrikePath. All rights reserved.
+        © {year} StrikePath
       </p>
 
       {/* Legal links */}
@@ -140,13 +140,12 @@ export default function Footer() {
           fontWeight: 300,
           letterSpacing: '0.18em',
           textTransform: 'uppercase',
-          color: 'var(--bone-dim)',
           display: 'flex',
           alignItems: 'center',
           gap: '0.4rem',
         }}
       >
-        Customer Service:
+        <span style={{ color: 'rgba(236,227,204,0.55)' }}>Customer Service:</span>
         <a
           href="tel:+19283560570"
           style={{
