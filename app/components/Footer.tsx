@@ -106,6 +106,7 @@ export default function Footer() {
       {/* Legal links */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         {[
+          { label: 'About', href: '/about' },
           { label: 'Privacy Policy', href: '/privacy' },
           { label: 'Terms of Service', href: '/terms' },
           { label: 'Disclaimer', href: '/disclaimer' },
