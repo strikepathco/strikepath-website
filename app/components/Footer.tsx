@@ -103,10 +103,35 @@ export default function Footer() {
         © {year} StrikePath
       </p>
 
+      {/* About */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {[
+          { label: 'About', href: '/about' },
+        ].map(({ label, href }) => (
+          <a
+            key={href}
+            href={href}
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.55rem',
+              fontWeight: 300,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'var(--bone-dim)',
+              textDecoration: 'none',
+              transition: 'color 0.25s ease',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = 'var(--gold)' }}
+            onMouseLeave={e => { e.currentTarget.style.color = 'var(--bone-dim)' }}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
       {/* Legal links */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         {[
-          { label: 'About', href: '/about' },
           { label: 'Privacy Policy', href: '/privacy' },
           { label: 'Terms of Service', href: '/terms' },
           { label: 'Disclaimer', href: '/disclaimer' },
