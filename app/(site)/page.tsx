@@ -91,17 +91,6 @@ const whyItems = [
 export default function Home() {
   return (
     <main className={styles.root}>
-      {/* ── NAV ── */}
-      <nav className={styles.nav}>
-        <Link href="/" aria-label="StrikePath — home" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <img src="/strikepath-logo.png" alt="" aria-hidden="true" style={{ height: '28px', width: 'auto', display: 'block' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: '0.85rem', letterSpacing: '0.08em', color: 'var(--bone-dim)', lineHeight: 1 }}>StrikePath</span>
-        </Link>
-        <Link href="/services" className={styles.navCta}>
-          Get Started
-        </Link>
-      </nav>
-
       {/* ── HERO ── */}
       <section className={styles.hero}>
         {/* Background video */}
