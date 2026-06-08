@@ -272,17 +272,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p style={{ marginTop: '2rem' }}>
-            <Link href="/ai-agency-phoenix-arizona" style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.58rem',
-              fontWeight: 300,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'var(--gold)',
-              textDecoration: 'none',
-            }}>Serving Phoenix &amp; Arizona →</Link>
-          </p>
         </div>
       </section>
 
