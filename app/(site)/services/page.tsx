@@ -101,29 +101,13 @@ export default function ServicesPage() {
           lineHeight: 1.9,
           color: 'rgba(236,227,204,0.60)',
           maxWidth: '42rem',
-          marginBottom: '1.5rem',
+          marginBottom: '5rem',
         }}
       >
         Every plan is billed monthly with no setup fees and no long-term contracts.
         Direct access to our team is included with every service.{' '}
         After checkout, you'll fill a quick 5-minute form — that's everything we need to get started.
       </p>
-      <a
-        href="/ai-agency-phoenix-arizona"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.58rem',
-          fontWeight: 300,
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-          color: 'var(--gold)',
-          textDecoration: 'none',
-          display: 'inline-block',
-          marginBottom: '5rem',
-        }}
-      >
-        Serving Phoenix &amp; Arizona →
-      </a>
 
       {/* Category sections */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
