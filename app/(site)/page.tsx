@@ -97,14 +97,6 @@ export default function Home() {
           <img src="/strikepath-logo.png" alt="" aria-hidden="true" style={{ height: '28px', width: 'auto', display: 'block' }} />
           <span style={{ fontFamily: 'var(--font-mono)', fontWeight: 300, fontSize: '0.85rem', letterSpacing: '0.08em', color: 'var(--bone-dim)', lineHeight: 1 }}>StrikePath</span>
         </Link>
-        <ul className={styles.navLinks}>
-          <li>
-            <Link href="/services">Services</Link>
-          </li>
-          <li>
-            <Link href="/#process">How We Work</Link>
-          </li>
-        </ul>
         <Link href="/services" className={styles.navCta}>
           Get Started
         </Link>
