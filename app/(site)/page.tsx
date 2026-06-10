@@ -27,7 +27,7 @@ const services = [
   {
     icon: "📞",
     name: "AI Receptionist",
-    desc: "Answers calls, books appointments, and handles questions every hour of every day. Built on Vapi, synced to your CRM.",
+    desc: "Answers calls, handles FAQs, and takes detailed messages every hour of every day. Built on Vapi, delivered within 48 hours.",
     from: "$349",
     href: "/ai-receptionist-for-small-business",
   },
