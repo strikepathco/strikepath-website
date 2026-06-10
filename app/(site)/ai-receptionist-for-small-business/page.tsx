@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     q: 'Can it handle appointment booking?',
-    a: 'The receptionist collects the caller\'s name, number, and reason for calling, then delivers that info to you instantly so your team can follow up and confirm. Scheduling system integration is available as a custom add-on — ask us about it.',
+    a: 'The receptionist collects the caller\'s name, number, and reason for calling, then delivers that info to you instantly so your team can follow up and confirm.',
   },
 ]
 
