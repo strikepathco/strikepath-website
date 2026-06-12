@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.strikepath.co'),
+  metadataBase: new URL('https://strikepath.co'),
   title: {
     template: '%s | StrikePath',
     default: 'StrikePath | AI Chatbots, Automation, Receptionists & Marketing for Businesses',

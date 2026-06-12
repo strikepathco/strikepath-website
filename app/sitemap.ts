@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = 'https://www.strikepath.co'
+const BASE = 'https://strikepath.co'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -11,9 +11,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/ai-automation-for-small-business`,        lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/ai-marketing-for-small-business`,         lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/ai-agency-phoenix-arizona`,               lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${BASE}/onboarding/chatbot`,                      lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/onboarding/automation`,                   lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/onboarding/receptionist`,                 lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE}/onboarding/marketing`,                    lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ]
 }
