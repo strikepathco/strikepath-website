@@ -2,16 +2,6 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.strikepath.co' }],
-        destination: 'https://strikepath.co/:path*',
-        permanent: true,
-      },
-    ]
-  },
   async headers() {
     return [
       {
