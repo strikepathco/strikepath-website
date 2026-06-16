@@ -80,7 +80,7 @@ export default function TermsPage() {
 
         <h2 style={sectionHeading}>Delivery</h2>
         <p style={body}>
-          StrikePath commits to delivering all services within 48 hours of receiving your completed onboarding form. Delivery timelines depend on you submitting accurate and complete onboarding information.
+          StrikePath aims to deliver all services within 48 hours of receiving your completed onboarding form. Delivery timelines depend on you submitting accurate and complete onboarding information.
         </p>
 
         <h2 style={sectionHeading}>Your Responsibilities</h2>
@@ -93,12 +93,12 @@ export default function TermsPage() {
 
         <h2 style={sectionHeading}>Limitation of Liability</h2>
         <p style={body}>
-          StrikePath's services are provided "as is." We are not liable for any indirect, incidental, or consequential damages arising from your use of our services, including but not limited to lost revenue, missed calls, or automation errors. Our total liability to you shall not exceed the amount you paid in the most recent billing month.
+          StrikePath's services are provided "as is." We are not liable for any indirect, incidental, or consequential damages arising from your use of our services, including but not limited to lost revenue, missed calls, or automation errors. Our total liability to you shall not exceed the amount you paid in the most recent billing month. Clients acknowledge that AI services involve inherent unpredictability and agree that StrikePath is not liable for any harm caused by AI-generated outputs delivered to their customers.
         </p>
 
         <h2 style={sectionHeading}>Disclaimer of Warranties</h2>
         <p style={body}>
-          We do not guarantee specific business results, lead generation outcomes, call volumes, or revenue increases from our services.
+          We do not guarantee specific business results, lead generation outcomes, call volumes, or revenue increases from our services. StrikePath makes no warranties, express or implied, regarding merchantability, fitness for a particular purpose, or uninterrupted service. AI-generated outputs including chatbot responses, receptionist conversations, and automated messages may be inaccurate, incomplete, or inappropriate for certain situations. Clients are solely responsible for reviewing all AI-generated output before use. StrikePath does not guarantee the accuracy of any AI-generated content.
         </p>
 
         <h2 style={sectionHeading}>Changes to Services</h2>
@@ -106,13 +106,15 @@ export default function TermsPage() {
           StrikePath reserves the right to modify, update, or discontinue any service with 30 days' notice to active subscribers.
         </p>
 
-        <h2 style={sectionHeading}>Governing Law</h2>
-        <p style={body}>These Terms are governed by the laws of the State of Arizona.</p>
-
         <h2 style={sectionHeading}>Contact</h2>
         <p style={body}>
           For questions about these Terms:{' '}
           <a href="mailto:contact@strikepath.co" style={{ color: 'var(--gold)', textDecoration: 'none' }}>contact@strikepath.co</a>
+        </p>
+
+        <h2 style={sectionHeading}>Governing Law</h2>
+        <p style={body}>
+          These Terms are governed by the laws of the State of Arizona. Any disputes arising from these Terms or your use of StrikePath services shall be resolved in the courts of Maricopa County, Arizona. You consent to personal jurisdiction in Arizona.
         </p>
       </div>
     </main>
